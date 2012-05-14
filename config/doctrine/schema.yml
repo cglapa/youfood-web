@@ -1,0 +1,45 @@
+Zone:
+  columns:
+    name:               { type: string }
+    dining_room_id:     { type: integer, notnull: true }
+    dining_table_id:           { type: integer, notnull: true }
+  relations:
+    DiningRoom:         { local: dining_room_id }
+    DiningTable:        { local: dining_table_id }
+
+DiningRoom:
+  columns:
+    name:               { type: string }
+
+DiningTable:
+  columns:
+    seats:              { type: integer }
+    zone_id:            { type: integer, notnull: true }
+  relations:
+    Zone:               { local: zone_id }
+
+TableOrder:
+  columns:
+    is_closed:          { type: boolean, default: false }
+    dining_table_id:    { type: integer, notnull: true }
+  relations:
+    DiningTable:        { local: dining_table_id }
+
+OrderProduct:
+  columns:
+    table_order_id:     { type: integer, notnull: true }
+    product_id:         { type: integer, notnull: true }
+  relations:
+    TableOrder:         { local: table_order_id }
+    Product:            { local: product_id }
+
+Product:
+  columns:
+    name:               { type: string }
+    category_id:        { type: integer, notnull: true }
+  relations:
+    Category:           { local: category_id }
+
+Category:
+  columns:
+    name:               { type: string }
