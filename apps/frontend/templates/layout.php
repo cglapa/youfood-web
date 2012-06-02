@@ -9,6 +9,15 @@
     <?php include_javascripts() ?>
   </head>
   <body>
-    <?php echo $sf_content ?>
+      <div class="navbar">
+          <div class="navbar-inner">
+              <div class="container">
+                  <a class="brand" href="#">You Food !</a>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <?php echo $sf_content ?>
+      </div>
   </body>
 </html>

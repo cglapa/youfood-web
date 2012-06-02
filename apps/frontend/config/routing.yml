@@ -2,9 +2,18 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
+category_show:
+  url:  /category/:id
+  class: sfDoctrineRoute
+  options: { model: job, type: object }
+  param: { module: category, action: show}
+  requirements:
+    id: \d+
+    sf_method: [get]
+  
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: category, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules
