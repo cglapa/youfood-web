@@ -1,20 +1,23 @@
-<h1>Categorys List</h1>
+<ul class="breadcrumb">
+    <li class="active">
+        liste des cat&eacute;gories
+    </li>
+</ul>
+<div class="page-header">
+    <h1>Cat&eacute;gories de plats</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-    </tr>
-  </thead>
+<table class="table table-striped">
   <tbody>
     <?php foreach ($categorys as $category): ?>
     <tr>
-      <td><a href="<?php echo url_for('category/show?id='.$category->getId()) ?>"><?php echo $category->getId() ?></a></td>
-      <td><?php echo $category->getName() ?></td>
+      <td><a href="<?php echo url_for('category_detail', $category) ?>"><?php echo $category->getName() ?></a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('category/new') ?>">New</a>
+<a class="btn btn-success" href="<?php echo url_for('category/new') ?>">
+    <i class="icon-pencil icon-white"></i>
+    Nouveau
+</a>

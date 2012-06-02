@@ -17,12 +17,6 @@ class categoryActions extends sfActions
       ->execute();
   }
 
-  public function executeShow(sfWebRequest $request)
-  {
-    $this->category = Doctrine_Core::getTable('Category')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->category);
-  }
-
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new CategoryForm();

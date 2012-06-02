@@ -1,22 +1,26 @@
-<h1>Products List</h1>
+<ul class="breadcrumb">
+    <li>
+        <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
+    </li>
+    <li class="active">
+        liste des plats <?php echo strtolower($category->getName()) ?>
+    </li>
+</ul>
+<div class="page-header">
+    <h1>Liste des plats <?php echo strtolower($category->getName()) ?></h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Category</th>
-    </tr>
-  </thead>
+<table class="table table-striped">
   <tbody>
     <?php foreach ($products as $product): ?>
     <tr>
-      <td><a href="<?php echo url_for('product/show?id='.$product->getId()) ?>"><?php echo $product->getId() ?></a></td>
-      <td><?php echo $product->getName() ?></td>
-      <td><?php echo $product->getCategoryId() ?></td>
+      <td><a href="<?php echo url_for('product/show?id='.$product->getId()) ?>"><?php echo $product->getName() ?></a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('product/new') ?>">New</a>
+  <a class="btn btn-success" href="<?php echo url_for('product/new') ?>">
+      <i class="icon-pencil icon-white"></i>
+      Nouveau
+  </a>

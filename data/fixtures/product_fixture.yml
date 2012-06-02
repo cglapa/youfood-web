@@ -1,0 +1,26 @@
+## YAML Template.
+---
+Product:
+#Entrées  
+  salade:
+    name: Salade
+    Category: entrees
+    
+#Plat principal
+  boeuf_bouguignon:
+    name: Boeuf Bourguignon
+    Category: plat_principal
+  canard_laque:
+    name: Canard Laqué
+    Category: plat_principal
+  tartare:
+    name: Tartare
+    Category: plat_principal
+  
+#Dessert
+  glace:
+    name: Glace
+    Category: dessert
+  brownie:
+    name: Brownie
+    Category: dessert

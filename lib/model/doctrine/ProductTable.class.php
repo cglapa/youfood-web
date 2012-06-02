@@ -16,4 +16,5 @@ class ProductTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Product');
     }
+    
 }

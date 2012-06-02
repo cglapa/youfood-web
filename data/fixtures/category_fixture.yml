@@ -1,0 +1,9 @@
+## YAML Template.
+---
+Category:
+  entrees:
+    name: Entrées
+  plat_principal:
+    name: Plat Principal
+  dessert:
+    name: Dessert

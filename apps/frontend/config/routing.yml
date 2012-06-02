@@ -2,11 +2,11 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
-category_show:
+category_detail:
   url:  /category/:id
   class: sfDoctrineRoute
-  options: { model: job, type: object }
-  param: { module: category, action: show}
+  options: { model: Category, type: object }
+  param: { module: product, action: index}
   requirements:
     id: \d+
     sf_method: [get]

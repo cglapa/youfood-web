@@ -16,4 +16,11 @@ class CategoryTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Category');
     }
+    
+    public function getProducts($id) {
+       $q = Doctrine_Query::create()
+               ->from('Product p')
+               ->where('p.category_id = ?', $id);
+       return $q->execute();
+   }
 }
