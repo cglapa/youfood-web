@@ -12,5 +12,8 @@ class CategoryForm extends BaseCategoryForm
 {
   public function configure()
   {
+      $this->widgetSchema->setLabels(array(
+         'name' => 'Nom de la catégorie'
+      ));
   }
 }

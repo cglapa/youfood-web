@@ -31,6 +31,7 @@ class categoryActions extends sfActions
     $this->processForm($request, $this->form);
 
     $this->setTemplate('new');
+    
   }
 
   public function executeEdit(sfWebRequest $request)
@@ -48,6 +49,7 @@ class categoryActions extends sfActions
     $this->processForm($request, $this->form);
 
     $this->setTemplate('edit');
+    
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -67,7 +69,7 @@ class categoryActions extends sfActions
     {
       $category = $form->save();
 
-      $this->redirect('category/edit?id='.$category->getId());
+      $this->redirect('@homepage');
     }
   }
 }
