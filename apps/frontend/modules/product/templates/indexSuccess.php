@@ -15,6 +15,12 @@
     <?php foreach ($products as $product): ?>
     <tr>
       <td><a href="<?php echo url_for('product_show', $product) ?>"><?php echo $product->getName() ?></a></td>
+      <td style="text-align: right">
+            <?php echo link_to(
+                    '<i class="icon-pencil icon-white"></i> Supprimer', 
+                    'product_delete', 
+                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($product->getName())." ?")) ?>
+        </td>
     </tr>
     <?php endforeach; ?>
   </tbody>

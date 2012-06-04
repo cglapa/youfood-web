@@ -62,8 +62,10 @@ class productActions extends sfActions
 
     $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
     $product->delete();
+    
+    $this->category = Doctrine_Core::getTable('Category')->find($request->getParameter('category_id'));
 
-    $this->redirect('product/index');
+    $this->redirect('category_detail', $this->category);
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

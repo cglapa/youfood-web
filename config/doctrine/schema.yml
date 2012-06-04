@@ -39,7 +39,7 @@ Product:
     category_id:        { type: integer, notnull: true }
     description:        { type: string }
   relations:
-    Category:           { local: category_id }
+    Category:           { onDelete: CASCADE, local: category_id }
 
 Category:
   columns:
