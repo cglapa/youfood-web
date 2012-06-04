@@ -25,35 +25,44 @@ class productActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new ProductForm();
+      $this->category = Doctrine_Core::getTable('Category')->find($request->getParameter('id'));
+      $this->form = new ProductForm();
+      $this->form->setDefault('category_id', $this->category->getId());
   }
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
+      $this->category = Doctrine_Core::getTable('Category')->find($request->getParameter('id'));
+      
+      $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new ProductForm();
+      $this->form = new ProductForm();
 
-    $this->processForm($request, $this->form);
+      $this->processForm($request, $this->form);
 
-    $this->setTemplate('new');
+      $this->setTemplate('new');
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
-    $this->form = new ProductForm($product);
+      $this->product = Doctrine_Core::getTable('Product')->find($request->getParameter('id'));
+      $this->category = Doctrine_Core::getTable('Category')->find($this->product->getCategoryId());
+      $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
+      $this->form = new ProductForm($product);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
-    $this->form = new ProductForm($product);
+      $this->product = Doctrine_Core::getTable('Product')->find($request->getParameter('id'));
+      $this->category = Doctrine_Core::getTable('Category')->find($this->product->getCategoryId());
+      
+      $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
+      $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
+      $this->form = new ProductForm($product);
 
-    $this->processForm($request, $this->form);
+      $this->processForm($request, $this->form);
 
-    $this->setTemplate('edit');
+      $this->setTemplate('edit');
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -74,7 +83,7 @@ class productActions extends sfActions
     {
       $product = $form->save();
 
-      $this->redirect('product/edit?id='.$product->getId());
+      $this->redirect('/category/'.$product->getCategoryId());
     }
   }
 }

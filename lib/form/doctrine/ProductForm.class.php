@@ -12,5 +12,11 @@ class ProductForm extends BaseProductForm
 {
   public function configure()
   {
+      $this->widgetSchema->setLabels(array(
+         'name' => 'Nom',
+      ));
+      
+      $this->widgetSchema['category_id'] = new sfWidgetFormInputHidden();
+      
   }
 }

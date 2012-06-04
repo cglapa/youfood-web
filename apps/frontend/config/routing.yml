@@ -15,12 +15,38 @@ category:
   class: sfDoctrineRouteCollection
   options: { model: Category }
     
-#Products rules    
+#Products rules  
 product:
   class: sfDoctrineRouteCollection
   options: { model: Product }
   
+product_new:
+  url:     /product/:id/new.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Category, type: object }
+  param:   { module: product, action: new, sf_format: html }
+  requirements: { sf_method: get, category_id: \d+ }
+ 
+product_create:
+  url:     /product/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Category, type: object }
+  param:   { module: product, action: create, sf_format: html }
+  requirements: { sf_method: post, category_id: \d+ }
   
+product_edit:
+  url:     /product/:id/edit.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Product, type: object }
+  param:   { module: product, action: edit, sf_format: html }
+  requirements: { sf_method: get }
+ 
+product_update:
+  url:     /product/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Product, type: object }
+  param:   { module: product, action: update, sf_format: html }
+  requirements: { sf_method: put }
 # Default rules
 
 homepage:
