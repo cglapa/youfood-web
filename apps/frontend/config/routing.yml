@@ -11,35 +11,18 @@ category_detail:
     id: \d+
     sf_method: [get]
 
-category_delete:
-  url: /category/:id
-  class: sfDoctrineRoute
-  options: { model: Category, type: object }
-  param: { module: category, action: delete }
-  requirements:
-    id: \d+
-    sf_method: [delete]
+category:
+  class: sfDoctrineRouteCollection
+  options: { model: Category }
     
 #Products rules    
-product_show:
-  url:  /product/:id
-  class: sfDoctrineRoute
-  options: { model: Product, type: object }
-  param: { module: product, action: show }
-  requirements:
-    id: \d+
-    sf_method: [get]
+product:
+  class: sfDoctrineRouteCollection
+  options: { model: Product }
   
-product_delete:
-  url: /product/:category_id/:id
-  class: sfDoctrineRoute
-  options: { model: Product, type: object }
-  param: { module: product, action: delete }
-  requirements:
-    category_id: \d+
-    id: \d+
-    sf_method: [delete]
   
+# Default rules
+
 homepage:
   url:   /
   param: { module: category, action: index }
