@@ -5,22 +5,28 @@ Product:
   salade:
     name: Salade
     Category: entrees
+    description: Description de l'entrée salade
     
 #Plat principal
   boeuf_bouguignon:
     name: Boeuf Bourguignon
     Category: plat_principal
+    description: Description du plat boeuf bourguignon
   canard_laque:
     name: Canard Laqué
     Category: plat_principal
+    description: Description du plat Canard laqué
   tartare:
     name: Tartare
     Category: plat_principal
+    description: Description du plat Tartate
   
 #Dessert
   glace:
     name: Glace
     Category: dessert
+    description: Description du dessert glace
   brownie:
     name: Brownie
     Category: dessert
+    description: Description du dessert brownie

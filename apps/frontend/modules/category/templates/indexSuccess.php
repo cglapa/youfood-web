@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
     <li class="active">
-        liste des cat&eacute;gories
+        Liste des cat&eacute;gories
     </li>
 </ul>
 <div class="page-header">

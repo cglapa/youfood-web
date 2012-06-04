@@ -37,6 +37,7 @@ Product:
   columns:
     name:               { type: string }
     category_id:        { type: integer, notnull: true }
+    description:        { type: string }
   relations:
     Category:           { local: category_id }
 

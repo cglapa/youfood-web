@@ -19,6 +19,7 @@ class productActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id')));
+    $this->category = Doctrine_Core::getTable('Category')->find($this->product->getCategory_id());
     $this->forward404Unless($this->product);
   }
 

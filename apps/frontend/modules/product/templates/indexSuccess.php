@@ -3,7 +3,7 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li class="active">
-        liste des plats <?php echo strtolower($category->getName()) ?>
+        Liste des plats <?php echo strtolower($category->getName()) ?>
     </li>
 </ul>
 <div class="page-header">
@@ -14,7 +14,7 @@
   <tbody>
     <?php foreach ($products as $product): ?>
     <tr>
-      <td><a href="<?php echo url_for('product/show?id='.$product->getId()) ?>"><?php echo $product->getName() ?></a></td>
+      <td><a href="<?php echo url_for('product_show', $product) ?>"><?php echo $product->getName() ?></a></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
