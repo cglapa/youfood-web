@@ -9,8 +9,14 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('category_detail', $category) ?>">Retour à la liste des plats <?php echo $category->getName() ?></a><br />
-          <input type="submit" value="Créer" />
+          <a href="<?php echo url_for('category_detail', $category) ?>" class="btn btn-inverse">
+              <i class="icon-arrow-left icon-white"></i>
+              Retour
+          </a>
+          <a href="#" onclick="document.getElementById('form').submit()" class="btn btn-success">
+              <i class="icon-white icon-pencil"></i>
+              <?php echo ($form->getObject()->isNew() ? 'Créer' : 'Modifier') ?>
+          </a>
         </td>
       </tr>
     </tfoot>
