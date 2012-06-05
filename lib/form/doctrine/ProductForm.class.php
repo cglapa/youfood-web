@@ -18,5 +18,6 @@ class ProductForm extends BaseProductForm
       
       $this->widgetSchema['category_id'] = new sfWidgetFormInputHidden();
       
+      $this->widgetSchema['name'] = new sfWidgetFormInputText();
   }
 }

@@ -15,5 +15,6 @@ class CategoryForm extends BaseCategoryForm
       $this->widgetSchema->setLabels(array(
          'name' => 'Nom de la catégorie'
       ));
+      $this->widgetSchema['name'] = new sfWidgetFormInputText();
   }
 }

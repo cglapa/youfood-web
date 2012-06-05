@@ -35,7 +35,7 @@ OrderProduct:
 
 Product:
   columns:
-    name:               { type: string }
+    name:               { type: string, notnull: true }
     category_id:        { type: integer, notnull: true }
     description:        { type: string }
   relations:
@@ -43,4 +43,4 @@ Product:
 
 Category:
   columns:
-    name:               { type: string }
+    name:               { type: string, notnull: true }
