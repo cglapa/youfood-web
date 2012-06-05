@@ -10,7 +10,9 @@
     </li>
 </ul>
 
-<h1 class="page-header"><?php echo $product->getName() ?></h1>
+<div class="page-header">
+    <h1><?php echo $product->getName() ?></h1>
+</div>
 
 <p>
     Le plat <?php echo $product->getName() ?> fait partie de la categorie <?php echo $category->getName() ?>
@@ -20,6 +22,18 @@
 
 <hr />
 
-<a href="<?php echo url_for('product/edit?id='.$product->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('product/index') ?>">List</a>
+<a href="<?php echo url_for('product/index') ?>" class="btn btn-inverse">
+    <i class="icon-arrow-left icon-white"></i>
+    Retour
+</a>
+<a href="<?php echo url_for('product/edit?id='.$product->getId()) ?>" class="btn btn-info">
+    <i class="icon-cog icon-white"></i>
+    Modifier
+</a>
+<?php echo link_to(
+        '<i class="icon-remove icon-white"></i> Supprimer', 
+        'product_delete', 
+        $product,
+        array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($product->getName())." ?"))?>
+</a>
+

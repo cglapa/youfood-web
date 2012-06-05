@@ -3,7 +3,7 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li>
-        <a href="<?php echo url_for('category_detail', $category) ?>">Liste des plats <?php echo strtolower($category->getName()) ?></a><span class="divider">></span>
+        <a href="<?php echo url_for('category_detail', $category) ?>"><?php echo $category->getName() ?></a><span class="divider">></span>
     </li>
     <li class="active">
         Créer un plat

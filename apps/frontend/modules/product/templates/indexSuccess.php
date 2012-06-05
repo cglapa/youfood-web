@@ -3,11 +3,11 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li class="active">
-        Liste des plats <?php echo strtolower($category->getName()) ?>
+        <?php echo $category->getName() ?>
     </li>
 </ul>
 <div class="page-header">
-    <h1>Liste des plats <?php echo strtolower($category->getName()) ?></h1>
+    <h1><?php echo $category->getName() ?></h1>
 </div>
 
 <table class="table table-striped">
