@@ -14,5 +14,6 @@ class DiningRoomForm extends BaseDiningRoomForm
   {
       $this->widgetSchema['name'] = new sfWidgetFormInputText();
       $this->getWidgetSchema()->setLabels(array('name' => 'Nom de la salle'));
+      $this->widgetSchema['zone_id'] = new sfWidgetFormInputHidden();
   }
 }

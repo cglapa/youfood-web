@@ -1,0 +1,12 @@
+## YAML Template.
+---
+DiningRoom:
+  first_room:
+    name: Première salle
+    Zone: first
+  second_room:
+    name: Seconde salle
+    Zone: first
+  third_room:
+    name: Troisième salle
+    Zone: first

@@ -14,6 +14,8 @@
               <div class="container">
                   <a class="brand" href="<?php echo url_for('@homepage') ?>">You Food !</a>
                   <ul class="nav pull-right">
+                      <li><?php echo link_to('Menus', '@homepage')?></li>
+                      <li><?php echo link_to('Zones', 'zone')?></li>
                       <li><?php echo link_to('Serveurs', 'sf_guard_user')?></li>
                   </ul>
               </div>

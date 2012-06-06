@@ -8,7 +8,7 @@ zone:
   options: { model: Zone }
 
 zone_show:
-  url:  /zone/:id
+  url:  /zone/room/:id
   class: sfDoctrineRoute
   options: { model: Zone, type: object }
   param: { module: dining_room, action: index }
@@ -17,7 +17,42 @@ zone_show:
 #dining_room
 dining_room:
   class: sfDoctrineRouteCollection
-  options: { model: DiningRoom, prefix_path: /room }
+  options: { model: dining_room, prefix_path: /zone/room/ }
+  
+dining_room_new:
+  url: /zone/room/new/:id
+  class: sfDoctrineRoute
+  options: { model: Zone, type: object }
+  param: { module: dining_room, action: new }
+  requirements: { zone_id: \d+ }
+  
+dining_room_create:
+  url:     /zone/room/create/:id
+  class:   sfDoctrineRoute
+  options: { model: Zone, type: object }
+  param:   { module: dining_room, action: create, sf_format: html }
+  requirements: { sf_method: post, category_id: \d+ }  
+  
+dining_room_edit:
+  url: /zone/room/edit/:id
+  class: sfDoctrineRoute
+  options: { model: DiningRoom, type: object }
+  param: { module: dining_room, action: edit }
+  requirements: { id: \d+ }  
+  
+dining_room_update:
+  url:     /zone/room/update/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: DiningRoom, type: object }
+  param:   { module: dining_room, action: update, sf_format: html }
+  requirements: { sf_method: put }
+  
+dining_room_delete:
+  url:          /zone/room/:id
+  class:        sfDoctrineRoute
+  options:      { model: DiningRoom, type: object }
+  param:        { module: dining_room, action: delete }
+  requirements: { zone_id: \d+, sf_method: delete }
   
 #sf_guard rules
 

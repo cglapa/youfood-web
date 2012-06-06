@@ -1,3 +1,8 @@
+<ul class="breadcrumb">
+    <li class="active">
+        Liste des zones
+    </li>
+</ul>
 <div class="page-header">
     <h1>Liste des zones</h1>
 </div>

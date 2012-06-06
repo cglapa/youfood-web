@@ -1,0 +1,7 @@
+## YAML Template.
+---
+Zone:
+  first:
+    name: Première zone
+  second:
+    name: Zone vide

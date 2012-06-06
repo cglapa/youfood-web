@@ -1,7 +1,7 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
-<form id="form" action="<?php echo url_for('dining_room/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form id="form" action="<?php echo url_for('dining_room_'.($form->getObject()->isNew() ? 'create' : 'update'), ($form->getObject()->isNew() ? $zone : $dining_room)) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          <a href="<?php echo url_for('dining_room') ?>" class="btn btn-inverse">
+          <a href="<?php echo url_for('zone_show', $zone) ?>" class="btn btn-inverse">
               <i class="icon-arrow-left icon-white"></i>
               Retour
           </a>

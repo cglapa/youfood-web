@@ -1,5 +1,13 @@
+<ul class="breadcrumb">
+    <li>
+        <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
+    </li>
+    <li class="active">
+        Salles de la zone <?php echo strtolower($zone->getName()) ?>
+    </li>
+</ul>
 <div class="page-header">
-    <h1>Liste des salles</h1>
+    <h1>Salles de la zone <?php echo strtolower($zone->getName()) ?></h1>
 </div>
 
 <table class="table table-striped">
@@ -22,7 +30,7 @@
   </tbody>
 </table>
 
-<a class="btn btn-success" href="<?php echo url_for('dining_room_new') ?>">
+<a class="btn btn-success" href="<?php echo url_for('dining_room_new', $zone) ?>">
       <i class="icon-pencil icon-white"></i>
       Nouveau
 </a>
