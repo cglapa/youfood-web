@@ -1,14 +1,7 @@
-<h1>Zones List</h1>
-
+<div class="page-header">
+    <h1>Liste des zones</h1>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Dining room</th>
-      <th>Dining table</th>
-    </tr>
-  </thead>
   <tbody>
     <?php foreach ($zones as $zone): ?>
     <tr>
