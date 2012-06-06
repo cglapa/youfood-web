@@ -16,4 +16,11 @@ class ZoneTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Zone');
     }
+    
+    public function getDiningRooms($id) {
+       $q = Doctrine_Query::create()
+               ->from('DiningRoom d')
+               ->where('d.zone_id = ?', $id);
+       return $q->execute();
+   }
 }

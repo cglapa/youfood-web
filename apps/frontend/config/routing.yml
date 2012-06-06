@@ -3,16 +3,22 @@
 
 
 #zone 
-
 zone:
   class: sfDoctrineRouteCollection
   options: { model: Zone }
-#dining_room
 
+zone_show:
+  url:  /zone/:id
+  class: sfDoctrineRoute
+  options: { model: Zone, type: object }
+  param: { module: dining_room, action: index }
+  requirements: { id: \d+ }
+  
+#dining_room
 dining_room:
   class: sfDoctrineRouteCollection
   options: { model: DiningRoom, prefix_path: /room }
-
+  
 #sf_guard rules
 
 sf_guard_signin:

@@ -7,14 +7,14 @@ DiningRoom:
     name:               { type: string, notnull: true }
     zone_id:            { type: integer, notnull: true }
   relations:
-    Zone:               { local: zone_id }
+    Zone:               { onDelete: CASCADE, local: zone_id }
 
 DiningTable:
   columns:
     seats:              { type: integer, notnull: true }
     dining_room_id:     { type: integer, notnull: true }
   relations:
-    DiningRoom:         { local: dining_room_id }
+    DiningRoom:         { onDelete: CASCADE, local: dining_room_id }
 
 TableOrder:
   columns:

@@ -1,17 +1,27 @@
 <div class="page-header">
     <h1>Liste des zones</h1>
 </div>
-<table>
+<table class="table table-striped">
   <tbody>
     <?php foreach ($zones as $zone): ?>
     <tr>
-      <td><a href="<?php echo url_for('zone/show?id='.$zone->getId()) ?>"><?php echo $zone->getId() ?></a></td>
-      <td><?php echo $zone->getName() ?></td>
-      <td><?php echo $zone->getDiningRoomId() ?></td>
-      <td><?php echo $zone->getDiningTableId() ?></td>
+      <td><?php echo link_to($zone->getName(), 'zone_show', $zone) ?></td>
+      <td style="text-align: right">
+            <?php echo link_to(
+                    '<i class="icon-cog icon-white"></i> Modifier', 
+                    'zone_edit',
+                    $zone, array('method' => 'get', 'class' => 'btn btn-info'))?>
+            <?php echo link_to(
+                    '<i class="icon-remove icon-white"></i> Supprimer', 
+                    'zone_delete', 
+                    $zone, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer la zone ".strtolower($zone->getName())." ?")) ?>
+        </td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('zone/new') ?>">New</a>
+<a class="btn btn-success" href="<?php echo url_for('zone_new') ?>">
+      <i class="icon-pencil icon-white"></i>
+      Nouveau
+</a>

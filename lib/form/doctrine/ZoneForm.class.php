@@ -12,5 +12,8 @@ class ZoneForm extends BaseZoneForm
 {
   public function configure()
   {
+      $this->widgetSchema['name'] = new sfWidgetFormInputText();
+      
+      $this->getWidgetSchema()->setLabel('name', 'Nom de la zone');
   }
 }

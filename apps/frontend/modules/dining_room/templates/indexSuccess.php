@@ -15,7 +15,7 @@
             <?php echo link_to(
                     '<i class="icon-remove icon-white"></i> Supprimer', 
                     'dining_room_delete', 
-                    $dining_room, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($dining_room->getName())." ?")) ?>
+                    $dining_room, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer la salle ".strtolower($dining_room->getName())." ?")) ?>
         </td>
     </tr>
     <?php endforeach; ?>
@@ -25,4 +25,4 @@
 <a class="btn btn-success" href="<?php echo url_for('dining_room_new') ?>">
       <i class="icon-pencil icon-white"></i>
       Nouveau
-  </a>
+</a>

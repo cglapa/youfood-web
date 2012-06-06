@@ -12,9 +12,7 @@ class dining_roomActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->dining_rooms = Doctrine_Core::getTable('DiningRoom')
-      ->createQuery('a')
-      ->execute();
+    $this->dining_rooms = Doctrine_Core::getTable('Zone')->getDiningRooms($request->getParameter('id'));
   }
 
   public function executeShow(sfWebRequest $request)
@@ -61,9 +59,10 @@ class dining_roomActions extends sfActions
     $request->checkCSRFProtection();
 
     $this->forward404Unless($dining_room = Doctrine_Core::getTable('DiningRoom')->find(array($request->getParameter('id'))), sprintf('Object dining_room does not exist (%s).', $request->getParameter('id')));
+    $id = $dining_room->getZoneId();
     $dining_room->delete();
 
-    $this->redirect('dining_room/index');
+    $this->redirect('zone/'.$id);
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -73,7 +72,7 @@ class dining_roomActions extends sfActions
     {
       $dining_room = $form->save();
 
-      $this->redirect('dining_room_index');
+      $this->redirect('zone/'.$dining_room->getZoneId());
     }
   }
 }

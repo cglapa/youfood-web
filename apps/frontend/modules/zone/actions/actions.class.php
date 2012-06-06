@@ -73,7 +73,7 @@ class zoneActions extends sfActions
     {
       $zone = $form->save();
 
-      $this->redirect('zone/edit?id='.$zone->getId());
+      $this->redirect('zone');
     }
   }
 }
