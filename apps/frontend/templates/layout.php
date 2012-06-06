@@ -8,11 +8,14 @@
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
   </head>
-  <body>
+    <body>
       <div class="navbar">
           <div class="navbar-inner">
               <div class="container">
                   <a class="brand" href="<?php echo url_for('@homepage') ?>">You Food !</a>
+                  <ul class="nav pull-right">
+                      <li><?php echo link_to('Serveurs', 'sf_guard_user')?></li>
+                  </ul>
               </div>
           </div>
       </div>
