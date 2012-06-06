@@ -1,6 +1,13 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+
+#dining_room
+
+dining_room:
+  class: sfDoctrineRouteCollection
+  options: { model: DiningRoom, prefix_path: /room }
+
 #sf_guard rules
 
 sf_guard_signin:
@@ -35,7 +42,7 @@ product:
   options: { model: Product }
   
 product_new:
-  url:     /product/:id/new.:sf_format
+  url:     /product/new/:id.:sf_format
   class:   sfDoctrineRoute
   options: { model: Category, type: object }
   param:   { module: product, action: new, sf_format: html }

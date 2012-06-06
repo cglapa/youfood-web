@@ -1,19 +1,19 @@
 Zone:
   columns:
-    name:               { type: string }
+    name:               { type: string, notnull: true }
     dining_room_id:     { type: integer, notnull: true }
-    dining_table_id:           { type: integer, notnull: true }
+    dining_table_id:    { type: integer, notnull: true }
   relations:
     DiningRoom:         { local: dining_room_id }
     DiningTable:        { local: dining_table_id }
 
 DiningRoom:
   columns:
-    name:               { type: string }
+    name:               { type: string, notnull: true }
 
 DiningTable:
   columns:
-    seats:              { type: integer }
+    seats:              { type: integer, notnull: true }
     zone_id:            { type: integer, notnull: true }
   relations:
     Zone:               { local: zone_id }
