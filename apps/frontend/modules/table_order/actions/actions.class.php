@@ -12,17 +12,39 @@ class table_orderActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')
-      ->createQuery('a')
-      ->execute();
+      //var_dump($request->getParameter('all'));
+      //die;
+      if($request->getParameter('all') == "all") {
+          $this->table_orders = Doctrine_Core::getTable('TableOrder')
+            ->createQuery('a')
+            ->execute();
+          $this->all = true;
+      }
+      else
+      {
+          $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
+          $this->all = false;
+      }
   }
-
+  
   public function executeAjax(sfWebRequest $request)
   {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')
-      ->createQuery('a')
-      ->execute();
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
     return $this->renderPartial('table_order/list', array('table_orders' => $this->table_orders));
+  }
+  
+  public function executeClose(sfWebRequest $request)
+  {
+    $this->forward404Unless($table_order = Doctrine_Core::getTable('TableOrder')->find(array($request->getParameter('id'))), sprintf('Object table_order does not exist (%s).', $request->getParameter('id')));
+    $table_order->setIsClosed(!$table_order->getIsClosed());
+    $table_order->save();
+    
+    if($request->getParameter('all') == "all") {
+        $this->redirect('/order/all');
+    }
+    else {
+        $this->redirect('table_order/index');
+    }
   }
   
   public function executeNew(sfWebRequest $request)

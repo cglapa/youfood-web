@@ -1,5 +1,5 @@
 <?php use_javascript('jquery-1.7.2.min.js') ?>
-<?php use_javascript('load_orders.js') ?>
+<?php if(!$all) use_javascript('load_orders.js') ?>
 
 <ul class="breadcrumb">
     <li class="active">
@@ -10,6 +10,16 @@
 <div class="page-header">
     <h1>Liste des commandes</h1>
 </div>
+
+<ul class="breadcrumb">
+    <li<?php if(!$all) echo ' class="active" '?>>
+        <?php echo link_to('Commandes en cours', 'table_order')?><span class="divider">></span>
+    </li>
+    <li<?php if($all) echo ' class="active" '?>>
+        <?php echo link_to('Toutes les commandes', '/order/all') ?>
+    </li>
+</ul>
+
 <table class="table table-striped">
   <thead>
       <tr>
@@ -19,7 +29,7 @@
       </tr>    
   </thead>
   <tbody id="orders">
-    <?php include_partial('table_order/list', array('table_orders' => $table_orders)) ?>
+    <?php include_partial('table_order/list', array('table_orders' => $table_orders, 'all' => $all)) ?>
   </tbody>
 </table>
 

@@ -16,4 +16,11 @@ class TableOrderTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TableOrder');
     }
+    
+    public function getUnclosed() {
+       $q = Doctrine_Query::create()
+               ->from('TableOrder t')
+               ->where('t.is_closed = 0');
+       return $q->execute();
+   }
 }

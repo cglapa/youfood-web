@@ -3,6 +3,8 @@
 
 
 #table_order
+
+  
 table_order:
   class: sfDoctrineRouteCollection
   options: { model: TableOrder, prefix_path: /order }
@@ -21,6 +23,18 @@ table_order_detail:
   params: { module: order_product, action: index }
   requirements: { id: \d+ }
   
+table_order_close:
+  url: /order/close/:id/:all
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  params: { module: table_order, action: close }
+  requirements: { id: \d+ }
+  
+table_order_all:
+  url: /order/:all
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  param: { module: table_order, action: index }
 #order_product
 
 #zone 
