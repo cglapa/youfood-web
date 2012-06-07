@@ -23,4 +23,5 @@ class TableOrderTable extends Doctrine_Table
                ->where('t.is_closed = 0');
        return $q->execute();
    }
+   
 }

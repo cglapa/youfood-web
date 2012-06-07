@@ -1,5 +1,15 @@
+<ul class="breadcrumb">
+    <li>
+        <?php echo link_to('Liste des commandes', 'table_order') ?><span class="divider">></span>
+    </li>
+    <li class="active">
+        Commande de la table <?php echo strtolower($table_order->getDiningTable()) ?>
+    </li>
+</ul>
+
+
 <div class="page-header">
-    <h1>Order products List</h1>
+    <h1>Commande de la table <?php echo strtolower($table_order->getDiningTable()) ?></h1>
 </div>
 
 <table class="table table-striped">
@@ -14,7 +24,6 @@
       <td><?php echo $order_product->getQuantity() ?></td>
     </tr>
     <?php endforeach; ?>
+    <tr><td colspan="2" style="text-align: right;">Prix total : <?php echo $table_order->getTotalPrice().' €'?></td></tr>
   </tbody>
 </table>
-
-  <a href="<?php echo url_for('order_product/new') ?>">New</a>

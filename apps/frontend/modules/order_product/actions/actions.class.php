@@ -12,9 +12,8 @@ class order_productActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->order_products = Doctrine_Core::getTable('OrderProduct')
-      ->createQuery('a')
-      ->execute();
+    $this->table_order = Doctrine_Core::getTable('TableOrder')->find($request->getParameter('id'));
+    $this->order_products = $this->table_order->getOrderProduct();
   }
 
   public function executeShow(sfWebRequest $request)

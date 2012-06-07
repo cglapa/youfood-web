@@ -21,4 +21,12 @@ class TableOrder extends BaseTableOrder
  
         return parent::save($conn);
     }
+    
+    public function getTotalPrice() {
+        $price = 0.00;
+        foreach ($this->getOrderProduct() as $order_product) {
+            $price += $order_product->getProduct()->getPrice() * $order_product->getQuantity();
+        }
+        return $price;
+    }
 }
