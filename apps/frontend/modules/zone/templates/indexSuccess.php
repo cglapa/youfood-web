@@ -10,7 +10,7 @@
   <tbody>
     <?php foreach ($zones as $zone): ?>
     <tr>
-      <td><?php echo link_to($zone->getName(), 'zone_show', $zone) ?></td>
+      <td><?php echo link_to($zone->getName(), 'zone_detail', $zone) ?></td>
       <td style="text-align: right">
             <?php echo link_to(
                     '<i class="icon-cog icon-white"></i> Modifier', 

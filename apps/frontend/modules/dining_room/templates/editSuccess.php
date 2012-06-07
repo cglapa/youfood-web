@@ -3,7 +3,7 @@
         <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
     </li>
     <li>
-        <?php echo link_to('Salles de la zone '.strtolower($zone->getName()), 'zone_show', $zone) ?><span class="divider">></span>
+        <?php echo link_to('Salles de la zone '.strtolower($zone->getName()), 'zone_detail', $zone) ?><span class="divider">></span>
     </li>
     <li class="active">
         Modifier la salle <?php echo strtolower($dining_room->getName()) ?>

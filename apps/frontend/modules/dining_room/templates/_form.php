@@ -9,7 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          <a href="<?php echo url_for('zone_show', $zone) ?>" class="btn btn-inverse">
+          <a href="<?php echo url_for('zone_detail', $zone) ?>" class="btn btn-inverse">
               <i class="icon-arrow-left icon-white"></i>
               Retour
           </a>

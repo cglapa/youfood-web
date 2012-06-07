@@ -7,7 +7,7 @@ zone:
   class: sfDoctrineRouteCollection
   options: { model: Zone }
 
-zone_show:
+zone_detail:
   url:  /zone/room/:id
   class: sfDoctrineRoute
   options: { model: Zone, type: object }
@@ -15,10 +15,6 @@ zone_show:
   requirements: { id: \d+ }
   
 #dining_room
-dining_room:
-  class: sfDoctrineRouteCollection
-  options: { model: dining_room, prefix_path: /zone/room/ }
-  
 dining_room_new:
   url: /zone/room/new/:id
   class: sfDoctrineRoute
