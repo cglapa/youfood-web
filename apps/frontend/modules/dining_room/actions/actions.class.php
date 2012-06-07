@@ -13,7 +13,7 @@ class dining_roomActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->dining_rooms = Doctrine_Core::getTable('Zone')->getDiningRooms($request->getParameter('id'));
-    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_rooms[0]->getZoneId());
+    $this->zone = Doctrine_Core::getTable('Zone')->find($request->getParameter('id'));
   }
 
   public function executeShow(sfWebRequest $request)
