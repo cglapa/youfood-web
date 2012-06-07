@@ -6,8 +6,10 @@
 
   
 table_order:
-  class: sfDoctrineRouteCollection
-  options: { model: TableOrder, prefix_path: /order }
+  url: /order
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  param: { module: table_order, action: index }
 
 table_order_ajax:
   url: /order/list.:sf_format

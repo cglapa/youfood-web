@@ -32,9 +32,4 @@
     <?php include_partial('table_order/list', array('table_orders' => $table_orders, 'all' => $all)) ?>
   </tbody>
 </table>
-
-<a class="btn btn-success" href="<?php echo url_for('table_order_new') ?>">
-    <i class="icon-pencil icon-white"></i>
-    Nouveau
-</a>
 <img id="loader" src="/img/loader.gif" style="vertical-align: middle; float: right; display: none;"/>

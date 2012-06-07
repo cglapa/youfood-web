@@ -43,7 +43,7 @@ class table_orderActions extends sfActions
         $this->redirect('/order/all');
     }
     else {
-        $this->redirect('table_order/index');
+        $this->redirect('table_order');
     }
   }
   
