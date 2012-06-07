@@ -1,3 +1,6 @@
+<?php use_javascript('jquery-1.7.2.min.js') ?>
+<?php use_javascript('load_orders.js') ?>
+
 <ul class="breadcrumb">
     <li class="active">
         Liste des commandes
@@ -7,7 +10,6 @@
 <div class="page-header">
     <h1>Liste des commandes</h1>
 </div>
-
 <table class="table table-striped">
   <thead>
       <tr>
@@ -16,14 +18,8 @@
           <th>Heure d'enregistrement</th>
       </tr>    
   </thead>
-  <tbody>
-    <?php foreach ($table_orders as $table_order): ?>
-    <tr>
-      <td><?php echo $table_order->getId() ?></td>
-      <td><?php echo $table_order->getDiningTable() ?></td>
-      <td><?php echo $table_order->getDateTimeObject('created_at')->format('H:i') ?></td>
-    </tr>
-    <?php endforeach; ?>
+  <tbody id="orders">
+    <?php include_partial('table_order/list', array('table_orders' => $table_orders)) ?>
   </tbody>
 </table>
 
@@ -31,3 +27,4 @@
     <i class="icon-pencil icon-white"></i>
     Nouveau
 </a>
+<img id="loader" src="/img/loader.gif" style="vertical-align: middle; float: right; display: none;"/>

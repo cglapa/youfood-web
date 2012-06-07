@@ -1,0 +1,7 @@
+## YAML Template.
+---
+OrderProduct:
+  boeuf:
+    TableOrder: first_order
+    Product: boeuf_bouguignon
+    Quantity: 2

@@ -17,12 +17,14 @@ class table_orderActions extends sfActions
       ->execute();
   }
 
-  public function executeShow(sfWebRequest $request)
+  public function executeAjax(sfWebRequest $request)
   {
-    $this->table_order = Doctrine_Core::getTable('TableOrder')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->table_order);
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')
+      ->createQuery('a')
+      ->execute();
+    return $this->renderPartial('table_order/list', array('table_orders' => $this->table_orders));
   }
-
+  
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new TableOrderForm();

@@ -29,6 +29,7 @@ OrderProduct:
   columns:
     table_order_id:     { type: integer, notnull: true }
     product_id:         { type: integer, notnull: true }
+    quantity:           { type: integer, notnull: true }
   relations:
     TableOrder:         { local: table_order_id }
     Product:            { local: product_id }

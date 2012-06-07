@@ -1,0 +1,1 @@
+<?php include_partial('/table_order/list', array('table_orders' => $dining_tables)) ?>

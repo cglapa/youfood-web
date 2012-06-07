@@ -7,6 +7,22 @@ table_order:
   class: sfDoctrineRouteCollection
   options: { model: TableOrder, prefix_path: /order }
 
+table_order_ajax:
+  url: /order/list.:sf_format
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  param: { module: table_order, action: ajax, sf_format: html }
+  requirements: { sf_format:  (?:html|js)}
+  
+table_order_detail:
+  url: /order/detail/:id
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  params: { module: order_product, action: index }
+  requirements: { id: \d+ }
+  
+#order_product
+
 #zone 
 zone:
   class: sfDoctrineRouteCollection
