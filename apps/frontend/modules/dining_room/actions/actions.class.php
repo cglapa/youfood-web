@@ -16,12 +16,6 @@ class dining_roomActions extends sfActions
     $this->zone = Doctrine_Core::getTable('Zone')->find($request->getParameter('id'));
   }
 
-  public function executeShow(sfWebRequest $request)
-  {
-    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->dining_room);
-  }
-
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new DiningRoomForm();
