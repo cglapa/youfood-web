@@ -11,6 +11,7 @@ DiningRoom:
 
 DiningTable:
   columns:
+    name:               { type: string,  notnull: true }
     seats:              { type: integer, notnull: true }
     dining_room_id:     { type: integer, notnull: true }
   relations:
@@ -36,6 +37,7 @@ Product:
     name:               { type: string, notnull: true }
     category_id:        { type: integer, notnull: true }
     description:        { type: string }
+    price:              { type: decimal, notnull: true }
   relations:
     Category:           { onDelete: CASCADE, local: category_id }
 

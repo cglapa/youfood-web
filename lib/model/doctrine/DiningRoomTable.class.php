@@ -16,4 +16,11 @@ class DiningRoomTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('DiningRoom');
     }
+    
+    public function getDiningTables($id) {
+       $q = Doctrine_Query::create()
+               ->from('DiningTable d')
+               ->where('d.dining_room_id = ?', $id);
+       return $q->execute();
+   }
 }

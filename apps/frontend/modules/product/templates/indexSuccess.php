@@ -14,7 +14,8 @@
   <tbody>
     <?php foreach ($products as $product): ?>
     <tr>
-      <td><a href="<?php echo url_for('product_show', $product) ?>"><?php echo $product->getName() ?></a></td>
+      <td style="width: 40%"><a href="<?php echo url_for('product_show', $product) ?>"><?php echo $product->getName() ?></a></td>
+      <td><?php echo $product->getPrice().'€'?></td>
       <td style="text-align: right">
             <?php echo link_to(
                     '<i class="icon-cog icon-white"></i> Modifier', 

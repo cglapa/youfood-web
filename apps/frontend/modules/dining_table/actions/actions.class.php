@@ -12,9 +12,8 @@ class dining_tableActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->dining_tables = Doctrine_Core::getTable('DiningTable')
-      ->createQuery('a')
-      ->execute();
+    $this->dining_tables = Doctrine_Core::getTable('DiningRoom')->getDiningTables($request->getParameter('id'));
+    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($request->getParameter('id'));
   }
 
   public function executeShow(sfWebRequest $request)

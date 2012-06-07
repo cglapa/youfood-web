@@ -49,9 +49,44 @@ dining_room_delete:
   options:      { model: DiningRoom, type: object }
   param:        { module: dining_room, action: delete }
   requirements: { zone_id: \d+, sf_method: delete }
+
+dining_room_detail:
+  url:          /zone/room/table/:id
+  class:        sfDoctrineRoute
+  options:      { model: DiningRoom, type: object }
+  param:        { module: dining_table, action: index }
+  requirements: { id: \d+ }
+  
+#dining_table
+dining_table_new:
+  url: /zone/room/table/new/:id
+  class: sfDoctrineRoute
+  options: { model: DiningRoom, type: object }
+  param: { module: dining_table, action: new }
+  requirements: { zone_id: \d+ }
+  
+dining_table_create:
+  url:     /zone/room/table/create/:id
+  class:   sfDoctrineRoute
+  options: { model: DiningRoom, type: object }
+  param:   { module: dining_table, action: create, sf_format: html }
+  requirements: { sf_method: post, category_id: \d+ }  
+  
+dining_table_edit:
+  url: /zone/room/table/edit/:id
+  class: sfDoctrineRoute
+  options: { model: DiningTable, type: object }
+  param: { module: dining_table, action: edit }
+  requirements: { id: \d+ }  
+  
+dining_table_update:
+  url:     /zone/room/table/update/:id.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: DiningTable, type: object }
+  param:   { module: dining_table, action: update, sf_format: html }
+  requirements: { sf_method: put }
   
 #sf_guard rules
-
 sf_guard_signin:
   url:   /login
   param: { module: sfGuardAuth, action: signin }

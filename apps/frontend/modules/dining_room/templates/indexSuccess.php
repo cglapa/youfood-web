@@ -14,7 +14,7 @@
   <tbody>
     <?php foreach ($dining_rooms as $dining_room): ?>
     <tr>
-      <td><?php echo $dining_room->getName() ?></td>
+      <td><?php echo link_to($dining_room->getName(), 'dining_room_detail', $dining_room) ?></td>
       <td style="text-align: right">
             <?php echo link_to(
                     '<i class="icon-cog icon-white"></i> Modifier', 
