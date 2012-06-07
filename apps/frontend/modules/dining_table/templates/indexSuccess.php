@@ -18,7 +18,7 @@
   <tbody>
     <?php foreach ($dining_tables as $dining_table): ?>
     <tr>
-      <td><a href="<?php echo url_for('dining_table/show?id='.$dining_table->getId()) ?>"><?php echo $dining_table->getName() ?></a></td>
+      <td><?php echo $dining_table->getName() ?></td>
       <td><?php echo $dining_table->getSeats() ?> place<?php if($dining_table->getSeats() > 1) echo 's'?></td>
       <td style="text-align: right">
             <?php echo link_to(
