@@ -12,4 +12,13 @@
  */
 class TableOrder extends BaseTableOrder
 {
+    public function save(Doctrine_Connection $conn = null)
+    {
+        if ($this->isNew() && !$this->getCreatedAt())
+        {
+            $this->setCreatedAt(time());
+        }
+ 
+        return parent::save($conn);
+    }
 }
