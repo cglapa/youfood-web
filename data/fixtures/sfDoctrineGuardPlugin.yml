@@ -1,0 +1,8 @@
+sfGuardUser:
+  User_admin:
+    first_name:     Nicolas
+    last_name:      OBRE
+    email_address:  admin@youfood.local
+    username:       admin
+    password:       admin
+    is_super_admin: true
