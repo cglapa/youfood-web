@@ -14,6 +14,7 @@ class dining_tableActions extends sfActions
   {
     $this->dining_tables = Doctrine_Core::getTable('DiningRoom')->getDiningTables($request->getParameter('id'));
     $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($request->getParameter('id'));
+    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_room->getZoneId());
   }
 
   public function executeShow(sfWebRequest $request)
@@ -24,15 +25,23 @@ class dining_tableActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
+    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($request->getParameter('id'));
+    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_room->getZoneId());
     $this->form = new DiningTableForm();
+    $this->form->setDefault('dining_room_id', $this->dining_room->getId());
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
+    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($request->getParameter('id'));
+    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_room->getZoneId());
+    
     $this->form = new DiningTableForm();
 
+    $this->form->setDefault('dining_room_id', $this->dining_room->getId());
+    
     $this->processForm($request, $this->form);
 
     $this->setTemplate('new');
@@ -42,6 +51,9 @@ class dining_tableActions extends sfActions
   {
     $this->forward404Unless($dining_table = Doctrine_Core::getTable('DiningTable')->find(array($request->getParameter('id'))), sprintf('Object dining_table does not exist (%s).', $request->getParameter('id')));
     $this->form = new DiningTableForm($dining_table);
+    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($dining_table->getDiningRoomId());
+    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_room->getZoneId());
+    $this->dining_table = $dining_table;
   }
 
   public function executeUpdate(sfWebRequest $request)
@@ -49,7 +61,10 @@ class dining_tableActions extends sfActions
     $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
     $this->forward404Unless($dining_table = Doctrine_Core::getTable('DiningTable')->find(array($request->getParameter('id'))), sprintf('Object dining_table does not exist (%s).', $request->getParameter('id')));
     $this->form = new DiningTableForm($dining_table);
-
+    $this->dining_room = Doctrine_Core::getTable('DiningRoom')->find($dining_table->getDiningRoomId());
+    $this->zone = Doctrine_Core::getTable('Zone')->find($this->dining_room->getZoneId());
+    $this->dining_table = $dining_table;
+    
     $this->processForm($request, $this->form);
 
     $this->setTemplate('edit');
@@ -61,8 +76,9 @@ class dining_tableActions extends sfActions
 
     $this->forward404Unless($dining_table = Doctrine_Core::getTable('DiningTable')->find(array($request->getParameter('id'))), sprintf('Object dining_table does not exist (%s).', $request->getParameter('id')));
     $dining_table->delete();
+    $dining_room = Doctrine_Core::getTable('DiningRoom')->find($dining_table->getDiningRoomId());
 
-    $this->redirect('dining_table/index');
+    $this->redirect('dining_room_detail', $dining_room);
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -71,8 +87,9 @@ class dining_tableActions extends sfActions
     if ($form->isValid())
     {
       $dining_table = $form->save();
+      $dining_room = Doctrine_Core::getTable('DiningRoom')->find($dining_table->getDiningRoomId());
 
-      $this->redirect('dining_table/edit?id='.$dining_table->getId());
+      $this->redirect('dining_room_detail', $dining_room);
     }
   }
 }

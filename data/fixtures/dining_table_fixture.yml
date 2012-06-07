@@ -1,0 +1,11 @@
+## YAML Template.
+---
+DiningTable:
+  first_table:
+    name: Première table
+    seats: 10
+    DiningRoom: first_room
+  second_table:
+    name: Deuxième salle
+    seats: 1
+    DiningRoom: first_room

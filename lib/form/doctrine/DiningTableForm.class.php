@@ -12,5 +12,13 @@ class DiningTableForm extends BaseDiningTableForm
 {
   public function configure()
   {
+      $this->widgetSchema['name'] = new sfWidgetFormInputText();
+      
+      $this->widgetSchema['dining_room_id'] = new sfWidgetFormInputHidden();
+      
+      $this->getWidgetSchema()->setLabels(array(
+         'name' => 'Nom',
+         'seats'=> 'Nombre de places' 
+      ));
   }
 }

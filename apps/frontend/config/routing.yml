@@ -86,6 +86,13 @@ dining_table_update:
   param:   { module: dining_table, action: update, sf_format: html }
   requirements: { sf_method: put }
   
+dining_table_delete:
+  url:          /zone/room/table/:id
+  class:        sfDoctrineRoute
+  options:      { model: DiningTable, type: object }
+  param:        { module: dining_table, action: delete }
+  requirements: { zone_id: \d+, sf_method: delete }
+  
 #sf_guard rules
 sf_guard_signin:
   url:   /login
