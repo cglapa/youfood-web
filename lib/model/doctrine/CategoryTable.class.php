@@ -23,4 +23,20 @@ class CategoryTable extends Doctrine_Table
                ->where('p.category_id = ?', $id);
        return $q->execute();
    }
+   
+   public function getCategoryInArray() {
+       $categorys = Doctrine_Core::getTable('Category')
+               ->createQuery('a')
+               ->execute();
+       $categorys_array = array();
+       $i = 0;
+       foreach ($categorys as $category) {
+           $categorys_array[$i] = array(
+             'id' => $category->getId(),
+             'name' => $category->getName()
+           );
+           $i++;
+       }
+       return $categorys_array;
+   }
 }

@@ -3,7 +3,7 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li>
-        <a href="<?php echo url_for('category_detail', $category)?>"><?php echo $category->getName() ?></a><span class="divider">></span>
+        <a href="<?php echo url_for('category_detail', $product)?>"><?php echo $product->getName() ?></a><span class="divider">></span>
     </li>
     <li class="active">
         <?php echo $product->getName() ?>
@@ -15,14 +15,14 @@
 </div>
 
 <p>
-    Le plat <?php echo $product->getName() ?> fait partie de la categorie <?php echo $category->getName() ?>
+    Le plat <?php echo $product->getName() ?> fait partie de la categorie <?php echo $product->getName() ?>
     <br /><br />
     <?php echo $product->getDescription() ?> 
 </p>
 
 <hr />
 
-<a href="<?php echo url_for('category_detail', $category) ?>" class="btn btn-inverse">
+<a href="<?php echo url_for('category_detail', $product) ?>" class="btn btn-inverse">
     <i class="icon-arrow-left icon-white"></i>
     Retour
 </a>

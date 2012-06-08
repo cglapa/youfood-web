@@ -3,11 +3,11 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li class="active">
-        <?php echo $category->getName() ?>
+        <?php echo $product->getName() ?>
     </li>
 </ul>
 <div class="page-header">
-    <h1><?php echo $category->getName() ?></h1>
+    <h1><?php echo $product->getName() ?></h1>
 </div>
 
 <table class="table table-striped">
@@ -31,7 +31,7 @@
   </tbody>
 </table>
 
-  <a class="btn btn-success" href="<?php echo url_for('product_new', $category) ?>">
+  <a class="btn btn-success" href="<?php echo url_for('product_new', $product) ?>">
       <i class="icon-pencil icon-white"></i>
       Nouveau
   </a>

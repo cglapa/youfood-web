@@ -3,7 +3,7 @@
 
 prod:
   .settings:
-    no_script_name:         true
+    no_script_name:         false
     logging_enabled:        false
 
 dev:
@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            YouFoodCsrfSecret
+    csrf_secret:            288fe41ad482e1f00ac1174f2a8fd44be6483ca4
 
     # Output escaping settings
     escaping_strategy:      true
@@ -33,9 +33,3 @@ all:
 
     # Enable the database manager
     use_database:           true
-    enabled_modules:        [default, sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser]
-    
-  .actions:
-    login_module:           sfGuardAuth
-    login_action:           signin
-      
