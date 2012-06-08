@@ -16,7 +16,6 @@ class table_orderActions extends sfActions
     $content = $request->getContent();
     if(!empty($content)) {
         $this->table_orders = json_decode($content, true);
-        
     }
     var_dump($this->table_orders);
     die;

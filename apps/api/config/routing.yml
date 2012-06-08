@@ -23,7 +23,7 @@ table_order:
   url: /api/order
   class: sfDoctrineRoute
   param: { module: table_order, action: index }
-  options: { model: TableOrder, type: list }
+  options: { model: TableOrder, type: object }
   requirements:
     sf_method: post
   
