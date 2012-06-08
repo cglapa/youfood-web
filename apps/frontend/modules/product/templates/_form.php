@@ -2,7 +2,7 @@
 <?php use_javascripts_for_form($form) ?>
 
 <?php //echo $form->renderFormTag(($form->getObject()->isNew() ? 'product_create' : 'product_update')) ?>
-<form id="form" action="<?php echo url_for(($form->getObject()->isNew() ? 'product_create' : 'product_update'), ($form->getObject()->isNew() ? $product : $product)) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form id="form" action="<?php echo url_for(($form->getObject()->isNew() ? 'product_create' : 'product_update'), ($form->getObject()->isNew() ? $category : $product)) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
@@ -10,7 +10,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          <a href="<?php echo url_for('category_detail', $product) ?>" class="btn btn-inverse">
+          <a href="<?php echo url_for('category_detail', $category) ?>" class="btn btn-inverse">
               <i class="icon-arrow-left icon-white"></i>
               Retour
           </a>

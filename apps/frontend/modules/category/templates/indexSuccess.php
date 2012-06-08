@@ -9,18 +9,18 @@
 
 <table class="table table-striped">
   <tbody>
-    <?php foreach ($products as $product): ?>
+    <?php foreach ($categorys as $category): ?>
     <tr>
-        <td><a href="<?php echo url_for('category_detail', $product) ?>"><?php echo $product->getName() ?></a></td>
+        <td><a href="<?php echo url_for('category_detail', $category) ?>"><?php echo $category->getName() ?></a></td>
         <td style="text-align: right">
             <?php echo link_to(
                     '<i class="icon-cog icon-white"></i> Modifier', 
                     'category_edit', 
-                    $product, array('method' => 'get', 'class' => 'btn btn-info')) ?>
+                    $category, array('method' => 'get', 'class' => 'btn btn-info')) ?>
             <?php echo link_to(
                     '<i class="icon-remove icon-white"></i> Supprimer', 
                     'category_delete', 
-                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer la catégorie ".strtolower($product->getName())." ?")) ?>
+                    $category, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer la catégorie ".strtolower($category->getName())." ?")) ?>
         </td>
     </tr>
     <?php endforeach; ?>

@@ -3,11 +3,11 @@
         <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li class="active">
-        <?php echo $product->getName() ?>
+        <?php echo $category->getName() ?>
     </li>
 </ul>
 <div class="page-header">
-    <h1><?php echo $product->getName() ?></h1>
+    <h1><?php echo $category->getName() ?></h1>
 </div>
 
 <table class="table table-striped">
@@ -24,7 +24,7 @@
             <?php echo link_to(
                     '<i class="icon-remove icon-white"></i> Supprimer', 
                     'product_delete', 
-                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($product->getName())." ?")) ?>
+                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($category->getName())." ?")) ?>
         </td>
     </tr>
     <?php endforeach; ?>

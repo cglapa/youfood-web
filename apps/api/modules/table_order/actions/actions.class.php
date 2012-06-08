@@ -12,9 +12,14 @@ class table_orderActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')
-      ->createQuery('a')
-      ->execute();
+    $this->table_orders = array();
+    $content = $request->getContent();
+    if(!empty($content)) {
+        $this->table_orders = json_decode($content, true);
+        
+    }
+    var_dump($this->table_orders);
+    die;
   }
 
   public function executeShow(sfWebRequest $request)

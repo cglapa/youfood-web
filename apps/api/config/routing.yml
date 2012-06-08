@@ -18,6 +18,15 @@ product:
   requirements:
     sf_format: (?:json)
     id: \d+
+    
+table_order:
+  url: /api/order
+  class: sfDoctrineRoute
+  param: { module: table_order, action: index }
+  options: { model: TableOrder, type: list }
+  requirements:
+    sf_method: post
+  
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
