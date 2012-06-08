@@ -1,0 +1,23 @@
+Pour récupérer des données :
+Category :
+url = /api_dev.php/category
+
+Product :
+url = /api_dev.php/product/:id_category
+
+
+
+Pour poster une nouvelle commande :
+url = /api_dev.php/order
+en POST, et en données voici un modèle :
+
+{
+    "TableOrder": {
+        "isClosed": "false",
+        "diningTableId": "1"
+    }
+}
+Les commandes doivent être posté une par une, on va considérer qu'une tablette ne passe qu'une commande (une commande par table).
+
+Pour poster une nouvelle ligne de commande (order_product)
+url = /api_dev.php/order/product/:id_order

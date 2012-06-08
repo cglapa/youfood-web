@@ -12,13 +12,17 @@ class table_orderActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->table_orders = array();
+    $table_orders = array();
     $content = $request->getContent();
     if(!empty($content)) {
-        $this->table_orders = json_decode($content, true);
+        $table_orders = json_decode($content, true);
+        $table_order_json = $table_orders["TableOrder"];
+               
+        $this->table_order = new TableOrder();
+        $this->table_order->setDiningTableId($table_order_json['diningTableId']);
+        $this->table_order->setIsClosed($table_order_json['isClosed']);
+        $this->table_order->save();
     }
-    var_dump($this->table_orders);
-    die;
   }
 
   public function executeShow(sfWebRequest $request)

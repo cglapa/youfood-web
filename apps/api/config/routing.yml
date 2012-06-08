@@ -3,7 +3,7 @@
 
 # default rules
 homepage:
-  url:   /api/category.:sf_format
+  url:   /category.:sf_format
   class: sfDoctrineRoute
   param: { module: category, action: index }
   options: { model: Category, type: list }
@@ -11,7 +11,7 @@ homepage:
     sf_format: (?:json)
 
 product:
-  url: /api/product.:sf_format/:id
+  url: /product.:sf_format/:id
   class: sfDoctrineRoute
   param: { module: product, action: index }
   options: { model: Category, type: list }
@@ -20,11 +20,13 @@ product:
     id: \d+
     
 table_order:
-  url: /api/order
+  url: /order.:sf_format
   class: sfDoctrineRoute
   param: { module: table_order, action: index }
-  options: { model: TableOrder, type: object }
+  options: { model: TableOrder, type: list }
   requirements:
+    sf_format: (?:json)
+    id: \d+
     sf_method: post
   
 # generic rules

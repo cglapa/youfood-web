@@ -14,9 +14,9 @@ class TableOrder extends BaseTableOrder
 {
     public function save(Doctrine_Connection $conn = null)
     {
-        if ($this->isNew() && !$this->getCreatedAt())
+        if ($this->isNew())
         {
-            $this->setCreatedAt(time());
+            $this->setCreatedAt(date('Y-m-d H:i:s', time()));
         }
  
         return parent::save($conn);
