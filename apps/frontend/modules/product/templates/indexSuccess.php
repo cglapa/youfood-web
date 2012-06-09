@@ -24,7 +24,7 @@
             <?php echo link_to(
                     '<i class="icon-remove icon-white"></i> Supprimer', 
                     'product_delete', 
-                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($category->getName())." ?")) ?>
+                    $product, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le plat ".strtolower($product->getName())." ?")) ?>
         </td>
     </tr>
     <?php endforeach; ?>
