@@ -16,4 +16,18 @@ class TabletTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Tablet');
     }
+    
+    public function getTablet()
+    {
+        return $this->createQuery('p');
+    }
+    
+    public function getTabletByAndroidId($android_id)
+    {
+        $p = $this->getTablet()
+                ->where('p.android_id = ?', $android_id)
+                ->limit(1);
+        
+        return $p;
+    }
 }

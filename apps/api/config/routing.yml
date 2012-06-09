@@ -28,6 +28,11 @@ table_order:
     sf_format: (?:json)
     id: \d+
     sf_method: post
+
+auth:
+  url: /auth/:id
+  class: sfRoute
+  param: { module: auth, action: index }
   
 # generic rules
 # please, remove them by adding more specific rules
