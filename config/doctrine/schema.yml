@@ -46,3 +46,18 @@ Product:
 Category:
   columns:
     name:               { type: string, notnull: true }
+
+Tablet:
+  columns:
+    android_id:         { type: string, size: 16, primary: true }
+    table_order_id:     { type: integer, primary: true }
+  relations:
+    TableOrder:         { onDelete: CASCADE, local: table_order_id }
+
+TabletRequest:
+  actAs:
+    Timestampable:
+      updated:          { disabled: true }
+  columns:
+    android_id:         { type: string, size: 16, primary: true }
+    last_check:         { type: timestamp }
