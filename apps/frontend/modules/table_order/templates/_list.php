@@ -5,7 +5,7 @@
         <td><?php echo $table_order->getDateTimeObject('created_at')->format('H:i') ?></td>
         <td style="text-align: right;"><?php echo link_to(
                     '<i class="icon-'.($table_order->getIsClosed() ? 'edit' : 'lock').' icon-white"></i> '.($table_order->getIsClosed() ? 'Ouvrir' : 'Clôturer'), 
-                    '/order/close/'.$table_order->getId().($all ? '/all' : '/0'), 
+                    '@table_order_close?id='.$table_order->getId().'&all='.($all ? 'all' : '0'), 
                     array('method' => 'get', 'class' => 'btn btn-'.($table_order->getIsClosed() ? 'primary' : 'warning')))?></td>
     </tr>
 <?php endforeach; ?>

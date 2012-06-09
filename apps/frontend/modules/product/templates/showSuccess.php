@@ -17,7 +17,7 @@
 <p>
     Le plat <?php echo $category->getName() ?> fait partie de la categorie <?php echo $category->getName() ?>
     <br /><br />
-    <?php echo $category->getDescription() ?> 
+    <?php echo $product->getDescription() ?> 
 </p>
 
 <hr />
