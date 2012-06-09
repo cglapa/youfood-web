@@ -3,7 +3,7 @@
 
 # default rules
 homepage:
-  url:   /category.:sf_format
+  url:   /get.:sf_format
   class: sfDoctrineRoute
   param: { module: category, action: index }
   options: { model: Category, type: list }
