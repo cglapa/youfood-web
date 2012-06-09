@@ -32,7 +32,7 @@ class authActions extends sfActions
           $tablet = new TabletRequest();
           $tablet->setAndroidId($request->getParameter('id'));
         }
-        $tablet->setLastCheck(time());
+        $tablet->setLastCheck(date('Y-m-d H:i:s'));
         $tablet->save();
     }
   }

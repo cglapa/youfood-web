@@ -13,7 +13,8 @@
 
 <ul class="breadcrumb">
     <li<?php if(!$all) echo ' class="active" '?>>
-        <?php echo link_to('Commandes en cours', 'table_order')?><span class="divider">></span>
+        <?php echo link_to('Commandes en cours', 'table_order')?>
+        <span class="divider">|</span>
     </li>
     <li<?php if($all) echo ' class="active" '?>>
         <?php echo link_to('Toutes les commandes', '/order/all') ?>
