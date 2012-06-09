@@ -13,6 +13,7 @@ class categoryActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->categorys = Doctrine_Core::getTable('Category')->getCategoryInArray();
+    $this->products = Doctrine_Core::getTable('Product')->getProductInArray();
   }
 
   public function executeShow(sfWebRequest $request)

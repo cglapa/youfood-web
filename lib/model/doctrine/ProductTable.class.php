@@ -17,10 +17,9 @@ class ProductTable extends Doctrine_Table
         return Doctrine_Core::getTable('Product');
     }
     
-    public function getProductInArray($id_category) {
+    public function getProductInArray() {
        $products = Doctrine_Query::create()
                ->from('Product p')
-               ->where('p.category_id = ?', $id_category)
                ->execute();
        $products_array = array();
        $i = 0;
@@ -29,7 +28,8 @@ class ProductTable extends Doctrine_Table
              'id' => $product->getId(),
              'name' => $product->getName(),
              'price' => $product->getPrice(),
-             'description' => $product->getDescription()
+             'description' => $product->getDescription(),
+             'category_id' => $product->getCategoryId()
            );
            $i++;
        }
