@@ -32,6 +32,13 @@ table_order_news_close:
   param: { module: table_order, action: closeNew }
   requirements: { sf_format: (?:json), sf_method: post}
   
+table_order_detail_click:
+  url: /order/new/detail/:id
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: object }
+  params: { module: table_order, action: clickDetail }
+  requirements: { id: \d+ }
+  
 table_order_detail:
   url: /order/detail/:id
   class: sfDoctrineRoute

@@ -6,6 +6,6 @@ DiningTable:
     seats: 10
     DiningRoom: first_room
   second_table:
-    name: Deuxième salle
+    name: Deuxième table
     seats: 1
     DiningRoom: first_room

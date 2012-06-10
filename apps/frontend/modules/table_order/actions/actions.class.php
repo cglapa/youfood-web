@@ -56,4 +56,11 @@ class table_orderActions extends sfActions
     $table_order->setIsNew(false);
     $table_order->save();
   }
+  
+  public function executeClickDetail(sfWebRequest $request) {
+      $table_order = Doctrine_Core::getTable('TableOrder')->find($request->getParameter('id'));
+      $table_order->setIsNew(false);
+      $table_order->save();
+      $this->redirect('table_order_detail', $table_order);
+  }
 }
