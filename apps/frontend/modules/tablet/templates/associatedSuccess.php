@@ -15,12 +15,19 @@
     <thead>
         <th>Identifiant</th>
         <th>Table</th>
+        <th></th>
     </thead>
     <tbody>
         <?php foreach($tablets as $tablet): ?>
         <tr>
             <td><?php echo $tablet->getAndroidId() ?></td>
             <td><?php echo $tablet->getDiningTable() ?></td>
+            <td style="text-align: right">
+                <a class="btn btn-danger" href="<?php echo url_for('tablet_remove', $tablet)?>">
+                    <i class="icon-remove icon-white"></i>
+                    Supprimer
+                </a>
+            </td>
         </tr>
         <?php endforeach; ?>
     </tbody>

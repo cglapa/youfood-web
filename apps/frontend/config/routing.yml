@@ -18,6 +18,14 @@ tablet_association:
   class: sfRoute
   param: { module: tablet, action: association }
   requirements: { sf_method: post }
+  
+tablet_remove:
+  url: /tablet/remove/:android_id
+  class: sfDoctrineRoute
+  options: { model: Tablet, type: object }
+  param: { module: tablet, action: remove }
+  requirements: { android_id: \d+}
+  
 #table_order
   
 table_order:
