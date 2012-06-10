@@ -51,9 +51,9 @@ Category:
 Tablet:
   columns:
     android_id:         { type: string, size: 16, primary: true }
-    table_order_id:     { type: integer, primary: true }
+    dining_table_id:    { type: integer, primary: true }
   relations:
-    TableOrder:         { onDelete: CASCADE, local: table_order_id }
+    DiningTable:        { onDelete: CASCADE, local: dining_table_id }
 
 TabletRequest:
   actAs:

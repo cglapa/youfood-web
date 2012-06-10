@@ -2,8 +2,23 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 
-#table_order
+#tablet
+tablet_request:
+  url: /tablet/request
+  class: sfRoute
+  param: { module: tablet, action: request }
 
+tablet:
+  url: /tablet/associated
+  class: sfRoute
+  param: { module: tablet, action: associated }
+  
+tablet_association:
+  url: /tablet/association
+  class: sfRoute
+  param: { module: tablet, action: association }
+  requirements: { sf_method: post }
+#table_order
   
 table_order:
   url: /order
