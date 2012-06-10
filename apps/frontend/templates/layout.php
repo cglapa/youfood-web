@@ -19,6 +19,7 @@
                       <li><?php echo link_to('Menus', '@homepage')?></li>
                       <li><?php echo link_to('Zones', 'zone')?></li>
                       <li><?php echo link_to('Serveurs', 'sf_guard_user')?></li>
+                      <li><?php echo link_to('Tablettes', '@tablet_request')?></li>
                   </ul>
                   <?php endif; ?>
               </div>
