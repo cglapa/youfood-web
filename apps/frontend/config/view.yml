@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [bootstrap.css]
+  stylesheets:    [bootstrap.css, jquery.gritter.css]
 
-  javascripts:    []
+  javascripts:    [jquery-1.7.2.min.js, http://www.google.com/jsapi, jquery.gritter.js, new_orders_gritter.js]
 
   has_layout:     true
   layout:         layout

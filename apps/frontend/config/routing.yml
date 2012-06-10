@@ -17,6 +17,20 @@ table_order_ajax:
   options: { model: TableOrder, type: object }
   param: { module: table_order, action: ajax, sf_format: html }
   requirements: { sf_format:  (?:html|js)}
+
+table_order_news:
+  url: /order/news.:sf_format
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: list }
+  param: { module: table_order, action: getNew }
+  requirements: { sf_format: (?:json), sf_method: get}
+  
+table_order_news_close:
+  url: /order/news.:sf_format
+  class: sfDoctrineRoute
+  options: { model: TableOrder, type: list }
+  param: { module: table_order, action: closeNew }
+  requirements: { sf_format: (?:json), sf_method: post}
   
 table_order_detail:
   url: /order/detail/:id

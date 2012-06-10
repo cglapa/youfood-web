@@ -22,6 +22,7 @@ TableOrder:
     is_closed:          { type: boolean, default: false }
     dining_table_id:    { type: integer, notnull: true }
     created_at:         { type: timestamp }
+    is_new:             { type: boolean, default: true }
   relations:
     DiningTable:        { local: dining_table_id }
 

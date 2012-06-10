@@ -1,4 +1,3 @@
-<?php use_javascript('jquery-1.7.2.min.js') ?>
 <?php if(!$all) use_javascript('load_orders.js') ?>
 
 <ul class="breadcrumb">

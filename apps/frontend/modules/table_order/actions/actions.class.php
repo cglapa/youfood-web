@@ -47,57 +47,13 @@ class table_orderActions extends sfActions
     }
   }
   
-  public function executeNew(sfWebRequest $request)
-  {
-    $this->form = new TableOrderForm();
+  public function executeGetNew(sfWebRequest $request) {
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getNew();
   }
-
-  public function executeCreate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
-    $this->form = new TableOrderForm();
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('new');
-  }
-
-  public function executeEdit(sfWebRequest $request)
-  {
-    $this->forward404Unless($table_order = Doctrine_Core::getTable('TableOrder')->find(array($request->getParameter('id'))), sprintf('Object table_order does not exist (%s).', $request->getParameter('id')));
-    $this->form = new TableOrderForm($table_order);
-  }
-
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($table_order = Doctrine_Core::getTable('TableOrder')->find(array($request->getParameter('id'))), sprintf('Object table_order does not exist (%s).', $request->getParameter('id')));
-    $this->form = new TableOrderForm($table_order);
-
-    $this->processForm($request, $this->form);
-
-    $this->setTemplate('edit');
-  }
-
-  public function executeDelete(sfWebRequest $request)
-  {
-    $request->checkCSRFProtection();
-
-    $this->forward404Unless($table_order = Doctrine_Core::getTable('TableOrder')->find(array($request->getParameter('id'))), sprintf('Object table_order does not exist (%s).', $request->getParameter('id')));
-    $table_order->delete();
-
-    $this->redirect('table_order/index');
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $table_order = $form->save();
-
-      $this->redirect('table_order/edit?id='.$table_order->getId());
-    }
+  
+  public function executeCloseNew(sfWebRequest $request) {
+    $table_order = Doctrine_Core::getTable('TableOrder')->find($request->getParameter('id'));
+    $table_order->setIsNew(false);
+    $table_order->save();
   }
 }
