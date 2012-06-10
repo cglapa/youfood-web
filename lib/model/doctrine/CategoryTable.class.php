@@ -24,16 +24,29 @@ class CategoryTable extends Doctrine_Table
        return $q->execute();
    }
    
-   public function getCategoryInArray() {
+   public function getJSONArray() {
        $categorys = Doctrine_Core::getTable('Category')
                ->createQuery('a')
                ->execute();
        $categorys_array = array();
        $i = 0;
        foreach ($categorys as $category) {
+           $products = Doctrine_Core::getTable('Category')->getProducts($category->getId());
+           $products_array = array();
+           $j = 0;
+           foreach ($products as $product) {
+               $product_array[$j] = array(
+                   'id' => $product->getId(),
+                   'name' => $product->getName(),
+                   'price' => $product->getPrice(),
+                   'description' => $product->getDescription()
+               );
+               $j++;
+           }
            $categorys_array[$i] = array(
              'id' => $category->getId(),
-             'name' => $category->getName()
+             'name' => $category->getName(),
+             'product' => $product_array
            );
            $i++;
        }
