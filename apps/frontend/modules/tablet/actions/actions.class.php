@@ -34,6 +34,9 @@ class tabletActions extends sfActions
       $tablet->setDiningTableId($request->getParameter('dining_table_id'));
       $tablet->save();
       
+      $tablet_request = Doctrine_Core::getTable('TabletRequest')->find($tablet->getAndroidId());
+      $tablet_request->delete();
+      
       $this->redirect('tablet');
   }
 }

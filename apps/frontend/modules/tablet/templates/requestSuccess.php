@@ -1,3 +1,12 @@
+<ul class="breadcrumb">
+    <li class="active">
+        <?php echo link_to('Requêtes d\'association', 'tablet_request')?><span class="divider">|</span>
+    </li>
+    <li>
+        <?php echo link_to('Tablettes associées', 'tablet')?>
+    </li>
+</ul>
+
 <div class="page-header">
     <h1>Requêtes d'association</h1>
 </div>
@@ -17,7 +26,7 @@
       <td><?php echo $tablet->getAndroidId() ?></td>
       <td><?php echo ($tablet->getLastCheck() ? $tablet->getDateTimeObject('last_check')->format('d/m/Y H:i') : $tablet->getDateTimeObject('created_at')->format('d/m/Y H:i')) ?></td>
       <td>
-          <form id="form_<?php echo $tablet->getAndroidId() ?>" action="/tablet/association" method="post">
+          <form id="form_<?php echo $tablet->getAndroidId() ?>" action="<?php echo url_for('tablet_association') ?>" method="post">
               <input type="hidden" value="<?php echo $tablet->getAndroidId() ?>" name="id" />
               <select name="dining_table_id">
                   <?php foreach ($dining_tables as $dining_table): ?>
