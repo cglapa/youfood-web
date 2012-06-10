@@ -7,7 +7,8 @@
         {
             "id": <?php echo json_encode($table_order->getId()) ?>,
             "dining_table": <?php echo json_encode($table_order->getDiningTable()->getName()) ?>,
-            "created_at": <?php echo json_encode($table_order->getDateTimeObject('created_at')->format('H:i')) ?>
+            "created_at": <?php echo json_encode($table_order->getDateTimeObject('created_at')->format('H:i')) ?>,
+            "is_new": "<?php echo json_encode($table_order->getIsNew()) ?>"
       
         }<?php echo $nb == $i ? '' : ',' ?><?php endforeach; ?>
         

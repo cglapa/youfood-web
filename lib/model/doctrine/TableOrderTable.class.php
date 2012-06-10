@@ -27,7 +27,7 @@ class TableOrderTable extends Doctrine_Table
    public function getNew() {
        $q = Doctrine_Query::create()
                ->from('TableOrder t')
-               ->where('t.is_new = 1 AND t.is_closed = 0');
+               ->where('t.is_closed = 0');
        return $q->execute();
    }
    
