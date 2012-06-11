@@ -187,6 +187,10 @@ sf_guard_password:
   url:   /request_password
   param: { module: sfGuardAuth, action: password }
   
+sf_guard_register:
+  url:   /register
+  param: { module: sfGuardAuth, action: register }
+  
 # Categories rules
 category_detail:
   url:  /category/:id
