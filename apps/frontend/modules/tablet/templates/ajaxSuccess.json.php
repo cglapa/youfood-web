@@ -6,7 +6,7 @@
     <?php foreach($tablet_requests as $tablet_request): ++$i; ?>
         {
                 "android_id": <?php echo json_encode($tablet_request->getAndroidId()) ?>,
-                "last_check": <?php echo json_encode($tablet_request->getLastCheck()) ?>,
+                "last_check": <?php echo json_encode($tablet_request->getDateTimeObject('last_check')->format('H:i')) ?>,
                 "is_new": "<?php echo json_encode($tablet_request->getIsNew()) ?>"
         
             }<?php echo $nb == $i ? '' : ',' ?>
