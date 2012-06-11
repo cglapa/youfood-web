@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [bootstrap.css, jquery.gritter.css]
 
-  javascripts:    [jquery-1.7.2.min.js, http://www.google.com/jsapi, jquery.gritter.js, new_orders_gritter.js]
+  javascripts:    [jquery-1.7.2.min.js, http://www.google.com/jsapi, jquery.gritter.js, new_orders_gritter.js, new_tablet_request_gritter.js]
 
   has_layout:     true
   layout:         layout

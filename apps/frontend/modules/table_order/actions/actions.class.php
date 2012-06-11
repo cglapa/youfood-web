@@ -48,7 +48,7 @@ class table_orderActions extends sfActions
   }
   
   public function executeGetNew(sfWebRequest $request) {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getNew();
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
   }
   
   public function executeCloseNew(sfWebRequest $request) {

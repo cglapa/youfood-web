@@ -62,3 +62,4 @@ TabletRequest:
   columns:
     android_id:         { type: string, size: 16, primary: true }
     last_check:         { type: timestamp }
+    is_new:             { type: boolean, default: true }

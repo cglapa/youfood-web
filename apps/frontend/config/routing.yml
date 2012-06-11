@@ -26,6 +26,24 @@ tablet_remove:
   param: { module: tablet, action: remove }
   requirements: { android_id: \d+}
   
+tablet_request_gritter:
+  url: /tablet/request.:sf_format
+  class: sfDoctrineRoute
+  options: { model: TabletRequest, type: list }
+  param: { module: tablet, action: ajax }
+  requirements:
+    sf_format: (?:json)
+    sf_method: get
+    
+tablet_request_gritter_close:
+  url: /tablet/request.:sf_format
+  class: sfDoctrineRoute
+  options: { model: TabletRequest, type: list }
+  param: { module: tablet, action: closeNew }
+  requirements:
+    sf_format: (?:json)
+    sf_method: post
+  
 #table_order
   
 table_order:

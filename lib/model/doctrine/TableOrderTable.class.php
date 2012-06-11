@@ -23,12 +23,4 @@ class TableOrderTable extends Doctrine_Table
                ->where('t.is_closed = 0');
        return $q->execute();
    }
-   
-   public function getNew() {
-       $q = Doctrine_Query::create()
-               ->from('TableOrder t')
-               ->where('t.is_closed = 0');
-       return $q->execute();
-   }
-   
 }

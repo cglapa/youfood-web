@@ -47,4 +47,17 @@ class tabletActions extends sfActions
       
       $this->redirect('tablet');
   }
+  
+  public function executeAjax(sfWebRequest $request)
+  {
+      $this->tablet_requests = Doctrine_Core::getTable('TabletRequest')
+              ->createQuery('a')
+              ->execute();
+  }
+  
+  public function executeCloseNew(sfWebRequest $request) {
+      $tablet_request = Doctrine_Core::getTable('TabletRequest')->find($request->getParameter('android_id'));
+      $tablet_request->setIsNew(false);
+      $tablet_request->save();
+  }
 }
