@@ -188,9 +188,29 @@ sf_guard_password:
   param: { module: sfGuardAuth, action: password }
   
 sf_guard_register:
-  url:   /register
+  url:   /waiter/new
   param: { module: sfGuardAuth, action: register }
   
+sf_guard_list:
+  url:   /waiter
+  param: { module: sfGuardAuth, action: index }
+
+sf_guard_edit:
+  url:   /waiter/edit/:id
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: sfGuardAuth, action: edit }
+  requirements: 
+    id: \d+
+
+sf_guard_update:
+  url:   /waiter/:id
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: sfGuardAuth, action: update }
+  requirements: 
+    sf_method: put
+    
 # Categories rules
 category_detail:
   url:  /category/:id

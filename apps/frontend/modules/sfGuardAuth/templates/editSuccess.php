@@ -1,8 +1,9 @@
 <div class="page-header">
-    <h1>Création d'un compte serveur</h1>
+    <h1>Modifier le serveur <?php echo $user->getFirstName()." ".$user->getLastName() ?></h1>
 </div>
 
-<form id="form" action="<?php echo url_for('sfGuardAuth/register') ?>" method="POST">
+<form id="form" action="<?php echo url_for('sf_guard_update', $user) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+  <input type="hidden" name="sf_method" value="put" />
   <table class="table table-striped">
     <?php echo $form ?>
     <tr>
