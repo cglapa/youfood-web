@@ -24,7 +24,7 @@ tablet_remove:
   class: sfDoctrineRoute
   options: { model: Tablet, type: object }
   param: { module: tablet, action: remove }
-  requirements: { android_id: \d+}
+  requirements: { android_id: \w+ }
   
 tablet_request_gritter:
   url: /tablet/request.:sf_format
@@ -191,6 +191,12 @@ dining_table_delete:
   options:      { model: DiningTable, type: object }
   param:        { module: dining_table, action: delete }
   requirements: { zone_id: \d+, sf_method: delete }
+  
+dining_table_ajax:
+  url:   /zone/room/table/request/:android_id
+  class: sfDoctrineRoute
+  options: { model: Tablet, type: object }
+  param: { module: dining_table, action: tableForm, sf_format: html }
   
 #sf_guard rules
 sf_guard_signin:

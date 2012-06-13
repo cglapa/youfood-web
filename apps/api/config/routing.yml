@@ -3,22 +3,11 @@
 
 # default rules
 homepage:
-  url:   /get.:sf_format
+  url:   /get/:androidId
   class: sfDoctrineRoute
-  param: { module: category, action: index }
-  options: { model: Category, type: list }
-  requirements:
-    sf_format: (?:json)
+  param: { module: menu, action: index, sf_format: json }
+  options: { model: Tablet, type: list }
 
-product:
-  url: /product.:sf_format/:id
-  class: sfDoctrineRoute
-  param: { module: product, action: index }
-  options: { model: Category, type: list }
-  requirements:
-    sf_format: (?:json)
-    id: \d+
-    
 table_order:
   url: /order.:sf_format
   class: sfDoctrineRoute

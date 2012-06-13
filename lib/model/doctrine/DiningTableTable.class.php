@@ -16,4 +16,17 @@ class DiningTableTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('DiningTable');
     }
+    
+    public function getDiningTable()
+    {
+        return $this->createQuery('p');
+    }
+    
+    public function getUnusedDiningTable()
+    {
+        $p = $this->getDiningTable()
+                ->where('p.id NOT IN (SELECT t.dining_table_id FROM Tablet t)');
+        
+        return $p;
+    }
 }

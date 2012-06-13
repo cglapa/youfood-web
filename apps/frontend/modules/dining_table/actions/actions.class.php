@@ -86,4 +86,11 @@ class dining_tableActions extends sfActions
       $this->redirect('dining_room_detail', $dining_room);
     }
   }
+  
+  public function executeTableForm(sfWebRequest $request) 
+  {
+      $this->setLayout(false);
+      $this->androidId = $request->getParameter('android_id');
+      $this->dining_tables = Doctrine::getTable('DiningTable')->getUnusedDiningTable()->execute();
+  }
 }

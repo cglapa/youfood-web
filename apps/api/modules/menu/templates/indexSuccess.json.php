@@ -1,4 +1,5 @@
 {
+  "status": "<?php echo ($tablet ? 'ok' : 'nok')?>"<?php if($tablet): ?>,
   "category": [
   <?php $nb = count($categorys); $i = 0; foreach ($categorys as $category): ++$i ?>
       {
@@ -25,4 +26,6 @@
         
 <?php endforeach ?>
   ]
+  <?php endif; ?>
+  
 }

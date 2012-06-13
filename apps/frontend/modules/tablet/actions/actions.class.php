@@ -15,9 +15,7 @@ class tabletActions extends sfActions
     $this->tablets = Doctrine_Core::getTable('TabletRequest')
       ->createQuery('a')
       ->execute();
-    $this->dining_tables = Doctrine_Core::getTable('DiningTable')
-      ->createQuery('b')
-      ->execute();
+    $this->dining_tables = Doctrine::getTable('DiningTable')->getUnusedDiningTable()->execute();
   }
 
   public function executeAssociated(sfWebRequest $request)
