@@ -16,6 +16,13 @@ class tabletActions extends sfActions
       ->createQuery('a')
       ->execute();
     $this->dining_tables = Doctrine::getTable('DiningTable')->getUnusedDiningTable()->execute();
+    foreach ($this->tablets as $key => $tablet) {
+        if(time()-300 > $tablet->getDateTimeObject('last_check')->getTimestamp()) {
+            $tablet->delete();
+            unset($this->tablets[$key]);
+        } 
+            
+    }
   }
 
   public function executeAssociated(sfWebRequest $request)
@@ -48,9 +55,16 @@ class tabletActions extends sfActions
   
   public function executeAjax(sfWebRequest $request)
   {
-      $this->tablet_requests = Doctrine_Core::getTable('TabletRequest')
-              ->createQuery('a')
-              ->execute();
+        $this->tablet_requests = Doctrine_Core::getTable('TabletRequest')
+                ->createQuery('a')
+                ->execute();
+        foreach ($this->tablet_requests as $key => $tablet) {
+            if(time()-300 > $tablet->getDateTimeObject('last_check')->getTimestamp()) {
+                $tablet->delete();
+                unset($this->tablet_requests[$key]);
+            } 
+
+        }
   }
   
   public function executeCloseNew(sfWebRequest $request) {
