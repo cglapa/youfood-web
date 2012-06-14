@@ -1,3 +1,11 @@
+function association(androidId) {
+    $.post("/tablet/association", 
+            {
+                id: androidId,
+                dining_table_id: $('#'+androidId).val()
+            });
+}
+
 $(document).ready(function() {
    var shownRequests = new Array();
    var shownAlerts = new Array();

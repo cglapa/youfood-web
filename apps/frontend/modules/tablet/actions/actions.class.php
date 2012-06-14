@@ -42,7 +42,8 @@ class tabletActions extends sfActions
       $tablet_request = Doctrine_Core::getTable('TabletRequest')->find($tablet->getAndroidId());
       $tablet_request->delete();
       
-      $this->redirect('tablet');
+      if(!$request->getParameter('ajax'))
+        $this->redirect('tablet');
   }
   
   public function executeRemove(sfWebRequest $request) 
