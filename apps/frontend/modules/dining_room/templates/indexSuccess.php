@@ -1,13 +1,13 @@
 <ul class="breadcrumb">
     <li>
-        <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
+        <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
     </li>
     <li class="active">
-        Salles de la zone <?php echo strtolower($zone->getName()) ?>
+        Salles du restaurant <?php echo strtolower($zone->getName()) ?>
     </li>
 </ul>
 <div class="page-header">
-    <h1>Salles de la zone <?php echo strtolower($zone->getName()) ?></h1>
+    <h1>Salles du restaurant <?php echo strtolower($zone->getName()) ?></h1>
 </div>
 
 <table class="table table-striped">

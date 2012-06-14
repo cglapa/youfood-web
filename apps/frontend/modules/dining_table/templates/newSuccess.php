@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li>
-        <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
+        <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
     </li>
     <li>
-        <?php echo link_to('Salles de la zone '.strtolower($zone->getName()), 'zone_detail', $zone) ?><span class="divider">></span>
+        <?php echo link_to('Salles du restaurant '.strtolower($zone->getName()), 'zone_detail', $zone) ?><span class="divider">></span>
     </li>
     <li>
         <?php echo link_to('Liste des tables de la salle '.strtolower($dining_room->getName()), 'dining_room_detail', $dining_room) ?><span class="divider">></span>

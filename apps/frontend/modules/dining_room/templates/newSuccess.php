@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
     <li>
-        <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
+        <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
     </li>
     <li>
-        <?php echo link_to('Salles de la zone '.strtolower($zone->getName()), 'zone_detail', $zone) ?><span class="divider">></span>
+        <?php echo link_to('Salles du restaurant '.strtolower($zone->getName()), 'zone_detail', $zone) ?><span class="divider">></span>
     </li>
     <li class="active">
         Créer une nouvelle salle dans la zone <?php echo strtolower($zone->getName()) ?>

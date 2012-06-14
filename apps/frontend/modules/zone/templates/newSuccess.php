@@ -1,13 +1,13 @@
 <ul class="breadcrumb">
     <li>
-        <?php echo link_to('Liste des zones', 'zone') ?><span class="divider">></span>
+        <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
     </li>
     <li class="active">
-        Créer une zone
+        Créer un restaurant
     </li>
 </ul>
 <div class="page-header">
-    <h1>Créer une zone</h1>
+    <h1>Créer un restaurant</h1>
 </div>
 
 <?php include_partial('form', array('form' => $form)) ?>

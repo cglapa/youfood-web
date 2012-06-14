@@ -1,10 +1,10 @@
 <ul class="breadcrumb">
     <li class="active">
-        Liste des zones
+        Liste des restaurants
     </li>
 </ul>
 <div class="page-header">
-    <h1>Liste des zones</h1>
+    <h1>Liste des restaurants</h1>
 </div>
 <table class="table table-striped">
   <tbody>

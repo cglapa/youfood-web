@@ -17,12 +17,6 @@ class zoneActions extends sfActions
       ->execute();
   }
 
-  public function executeShow(sfWebRequest $request)
-  {
-    $this->zone = Doctrine_Core::getTable('Zone')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->zone);
-  }
-
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new ZoneForm();
