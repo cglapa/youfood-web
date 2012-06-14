@@ -18,7 +18,8 @@ class ProductForm extends BaseProductForm
       
       $this->widgetSchema->setLabels(array(
           'name' => 'Nom',
-         'price' => 'Prix'
+          'price' => 'Prix',
+          'available' => 'Disponible'
       ));
   }
 }
