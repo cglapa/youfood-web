@@ -18,6 +18,11 @@
       <td><?php echo $product->getPrice().'€'?></td>
       <td style="text-align: right">
             <?php echo link_to(
+                    '<i class="'.($product->getAvailable() ? 'icon-ok-sign' : 'icon-minus-sign').' icon-white"></i> '.($product->getAvailable() ? 'Disponible' : 'Indisponible'),
+                    'product_available',
+                    $product, array('method' => 'put', 'class' => 'btn '.($product->getAvailable() ? 'btn-success' : 'btn-warning'))
+                    ) ?>
+            <?php echo link_to(
                     '<i class="icon-cog icon-white"></i> Modifier', 
                     'product_edit',
                     $product, array('method' => 'get', 'class' => 'btn btn-info'))?>

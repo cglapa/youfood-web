@@ -31,11 +31,14 @@ class CategoryTable extends Doctrine_Table
        $categorys_array = array();
        $i = 0;
        foreach ($categorys as $category) {
-           $products = Doctrine_Core::getTable('Category')->getProducts($category->getId());
+           $products = Doctrine_Core::getTable('Product')
+                   ->createQuery('p')
+                   ->andWhere('p.category_id = ? AND p.available = 1', $category->getId())
+                   ->execute();
            $products_array = array();
            $j = 0;
            foreach ($products as $product) {
-               $product_array[$j] = array(
+               $products_array[$j] = array(
                    'id' => $product->getId(),
                    'name' => $product->getName(),
                    'price' => $product->getPrice(),
@@ -43,11 +46,13 @@ class CategoryTable extends Doctrine_Table
                );
                $j++;
            }
-           $categorys_array[$i] = array(
-             'id' => $category->getId(),
-             'name' => $category->getName(),
-             'product' => $product_array
-           );
+           if($products_array) {
+            $categorys_array[$i] = array(
+                'id' => $category->getId(),
+                'name' => $category->getName(),
+                'product' => $products_array
+            );
+           }
            $i++;
        }
        return $categorys_array;

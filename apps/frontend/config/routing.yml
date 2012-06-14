@@ -281,6 +281,16 @@ product_update:
   options: { model: Product, type: object }
   param:   { module: product, action: update, sf_format: html }
   requirements: { sf_method: put }
+  
+product_available:
+  url:    /product/available/:id
+  class:  sfDoctrineRoute
+  options: { model: Product, type: object }
+  param: { module: product, action: available }
+  requirements:
+    id: \d+
+    sf_method: put
+    
 # Default rules
 
 homepage:
