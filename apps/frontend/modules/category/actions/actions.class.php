@@ -69,7 +69,7 @@ class categoryActions extends sfActions
     {
       $category = $form->save();
 
-      $this->redirect('@homepage');
+      $this->redirect('category');
     }
   }
 }

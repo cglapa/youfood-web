@@ -1,6 +1,6 @@
 <ul class="breadcrumb">
     <li>
-        <a href="<?php echo url_for('@homepage')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
+        <a href="<?php echo url_for('category')?>">Liste des cat&eacute;gories</a><span class="divider">></span>
     </li>
     <li class="active">
         <?php echo $category->getName() ?>

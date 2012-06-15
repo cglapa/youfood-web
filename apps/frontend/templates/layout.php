@@ -17,7 +17,7 @@
                   <ul class="nav pull-right">
                       <li><?php echo link_to('Commandes', 'table_order') ?></li>
                       <li><?php echo link_to('Menus', 'menu')?></li>
-                      <li><?php echo link_to('Plats', '@homepage')?></li>
+                      <li><?php echo link_to('Plats', 'category')?></li>
                       <li><?php echo link_to('Restaurants', 'zone')?></li>
                       <li><?php echo link_to('Serveurs', 'sf_guard_list')?></li>
                       <li><?php echo link_to('Association tablette', 'tablet_request')?></li>

@@ -352,7 +352,7 @@ product_available:
 
 homepage:
   url:   /
-  param: { module: category, action: index }
+  param: { module: table_order, action: index }
 
 #generic rules
 #please, remove them by adding more specific rules
