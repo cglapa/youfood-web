@@ -38,8 +38,11 @@ class help_requestActions extends sfActions
   public function executeList(sfWebRequest $request) {
       if($request->getMethod() == 'POST') {
           $tablet = Doctrine::getTable('Tablet')->getTabletByAndroidId($request->getParameter('androidId'))->fetchOne();
-          $tablet->setHelp($request->getParameter('help'));
-          $tablet->save();
+          $help = $request->getParameter('help');
+          if($help >= 0 && $help < 3) {
+            $tablet->setHelp($request->getParameter('help'));
+            $tablet->save();
+          }
       }
       else {
           $tablets = Doctrine::getTable('Tablet')->findBy('help', '1');
