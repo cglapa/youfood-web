@@ -12,7 +12,6 @@ class menuActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->categorys = Doctrine_Core::getTable('Category')->getJSONArray();
-    $this->tablet = Doctrine_Core::getTable('Tablet')->getTabletByAndroidId($request->getParameter('androidId'))->fetchOne();
+    $this->jsonArray = Doctrine::getTable('Menu')->getJSONArray();
   }
 }

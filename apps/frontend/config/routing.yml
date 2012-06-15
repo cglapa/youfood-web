@@ -2,6 +2,63 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 
+#menu
+menu:
+  class: sfDoctrineRouteCollection
+  options: { model: Menu, prefix_path: /menu }
+  
+main_menu:
+  url: /menu/main/:id
+  class: sfDoctrineRoute
+  options: { model: Menu, type: object }
+  param: { module: menu, action: updateMain }
+  requirements:
+    id: \d+
+    sf_method: put
+    
+menu_detail:
+  url: /menu/detail/:id
+  class: sfDoctrineRoute
+  options: { model: Menu, type: object }
+  param: { module: menu_product, action: index }
+  requirements:
+    id: \d+
+  
+#menu_product
+menu_product_new:
+  url: /menu/detail/new/:id
+  class: sfDoctrineRoute
+  options: { model: Menu, type: object }
+  param: { module: menu_product, action: new }
+  requirements:
+    id: \d+
+
+menu_product_create:
+  url: /menu/detail/create
+  class: sfDoctrineRoute
+  options: { model: Menu, type: object }
+  param: { module: menu_product, action: create }
+  requirements:
+    id: \d+
+    sf_method: post
+    
+menu_product_delete:
+  url: /menu/detail/delete/:id
+  class: sfDoctrineRoute
+  options: { model: MenuProdut, type: object }
+  param: { module: menu_product, action: delete }
+  requirements:
+    id: \d+
+    sf_method: delete
+    
+menu_product_available:
+  url: /menu/detail/available/:id
+  class: sfDoctrineRoute
+  options: { model: MenuProdut, type: object }
+  param: { module: menu_product, action: available }
+  requirements:
+    id: \d+
+    sf_method: put
 #tablet
 tablet_request:
   url: /tablet/request
@@ -299,9 +356,9 @@ homepage:
 
 #generic rules
 #please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
+#default_index:
+#  url:   /:module
+#  param: { action: index }
 
-default:
-  url:   /:module/:action/*
+#default:
+#  url:   /:module/:action/*

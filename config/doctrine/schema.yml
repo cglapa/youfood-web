@@ -64,3 +64,17 @@ TabletRequest:
     android_id:         { type: string, size: 16, primary: true }
     last_check:         { type: timestamp }
     is_new:             { type: boolean, default: true }
+    
+Menu:
+  columns:
+    name:               { type: string, notnull: true }
+    is_available:       { type: boolean, default: false }
+
+MenuProduct:
+  columns:
+    product_id:         { type: integer, notnull: true }
+    menu_id:            { type: integer, notnull: true }
+    is_available:       { type: boolean, default: true }
+  relations:
+    Product:            { local: product_id, onDelete: CASCADE }
+    Menu:               { local: menu_id, onDelete: CASCADE    }
