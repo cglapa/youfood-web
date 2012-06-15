@@ -22,24 +22,27 @@ class MenuTable extends Doctrine_Table
        $menu_products = Doctrine::getTable('MenuProduct')->findBy('menu_id', $menu->getId());
        $category_array = array();
        foreach ($menu_products as $menu_product) {
-           $product = array(
-               "id" => $menu_product->getProduct()->getId(),
-               "name" => $menu_product->getProduct()->getName(), 
-               "price" => $menu_product->getProduct()->getPrice(),
-               "description" => $menu_product->getProduct()->getDescription()
-           );
-           $category = $menu_product->getProduct()->getCategory();
-           if(!in_array(array("id" => $category->getId()), $category_array)) {
-               array_push($category_array, array(
-                   "id" => $category->getId(),
-                   "name" => $category->getName(),
-                   "product" => array($product)
-               ));
+           if($menu_product->getIsAvailable()) {
+                $product = array(
+                    "id" => $menu_product->getProduct()->getId(),
+                    "name" => $menu_product->getProduct()->getName(), 
+                    "price" => $menu_product->getProduct()->getPrice(),
+                    "description" => $menu_product->getProduct()->getDescription()
+                );
+                $category = $menu_product->getProduct()->getCategory();
+                if(!in_array(array("id" => $category->getId()), $category_array)) {
+                    array_push($category_array, array(
+                        "id" => $category->getId(),
+                        "name" => $category->getName(),
+                        "product" => array($product)
+                    ));
+                }
+                else {
+                    $product_arrays = $category_array[$category->getId()];
+                    array_push($product, $product_arrays["product"]);
+                }
            }
-           else {
-               $product_arrays = $category_array[$category->getId()];
-               array_push($product, $product_arrays["product"]);
-           }
+           
        }
        
        return array("category" => $category_array);
