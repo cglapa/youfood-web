@@ -12,6 +12,6 @@ class menuActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->jsonArray = Doctrine::getTable('Menu')->getJSONArray();
+    $this->jsonArray = Doctrine::getTable('Menu')->getJSONArray($request->getParameter('androidId'));
   }
 }
