@@ -17,6 +17,7 @@
               <i class="icon-white icon-pencil"></i>
               <?php echo ($form->getObject()->isNew() ? 'Créer' : 'Modifier') ?>
           </a>
+          <input type="submit" style="visibility: hidden" />
         </td>
       </tr>
     </tfoot>
