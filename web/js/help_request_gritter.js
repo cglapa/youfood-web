@@ -16,7 +16,7 @@ $(document).ready(function() {
                             shownAlerts[value.androidId] = $.gritter.add({
                                 title: "Demande d'aide de la table "+ value.diningTable,
                                 text: "La table "+value.diningTable+" a besoin d'aide !<br />\n\
-                                        <a id='help_"+value.androidId+"_a' href='#' class='btn btn-info' onclick='setIntervention("+value.androidId+");'>\n\
+                                        <a id='help_"+value.androidId+"_a' href='#' class='btn btn-info' onclick='setIntervention(\""+value.androidId+"\");'>\n\
                                             <i class='icon-ok icon-white'></i>\n\
                                             <span id='help_"+value.androidId+"'>Intervenir !</span>\n\
                                         </a>",
