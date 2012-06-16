@@ -16,4 +16,28 @@ class OrderProductTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('OrderProduct');
     }
+    
+    public function getStats($zone_id, $category_id) {
+        if($category_id == 0) {
+        $q = $this->createQuery('o')
+                ->select('o.product_id, SUM(o.quantity) as sum')
+                ->leftJoin('o.TableOrder t')
+                ->leftJoin('t.DiningTable tab')
+                ->leftJoin('tab.DiningRoom r')
+                ->groupBy('o.product_id')
+                ->andWhere('r.zone_id = ?', $zone_id);
+        }
+        else {
+            $q = $this->createQuery('o')
+                ->select('o.product_id, SUM(o.quantity) as sum')
+                ->leftJoin('o.Product p')
+                ->leftJoin('o.TableOrder t')
+                ->leftJoin('t.DiningTable tab')
+                ->leftJoin('tab.DiningRoom r')
+                ->groupBy('o.product_id')
+                ->andWhere('r.zone_id = ?', $zone_id)
+                ->andWhere('p.category_id = ?', $category_id);
+        }
+        return $q->execute();
+    }
 }

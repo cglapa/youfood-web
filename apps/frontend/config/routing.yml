@@ -2,6 +2,21 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 
+#stats
+stats_zone:
+  url: /stats/zone/:id
+  class: sfDoctrineRoute
+  options: { model: Zone, type: object }
+  param: { module: stats, action: zone }
+  requirements:
+    id: \d+
+    sf_method: post
+
+stats:
+  url: /stats
+  class: sfRoute
+  param: { module: stats, action: index }
+  
 #menu
 menu:
   class: sfDoctrineRouteCollection

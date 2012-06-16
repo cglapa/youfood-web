@@ -21,6 +21,7 @@
                       <li><?php echo link_to('Restaurants', 'zone')?></li>
                       <li><?php echo link_to('Serveurs', 'sf_guard_list')?></li>
                       <li><?php echo link_to('Association tablette', 'tablet_request')?></li>
+                      <li><?php echo link_to('Statistiques', 'stats') ?></li>
                   </ul>
                   <?php endif; ?>
               </div>
