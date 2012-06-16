@@ -1,0 +1,6 @@
+## YAML Template.
+---
+Menu:
+  first:
+    name: Premier menu
+    is_available: true

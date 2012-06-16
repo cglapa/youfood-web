@@ -1,0 +1,22 @@
+## YAML Template.
+---
+MenuProduct:
+  salade:
+    product_id: 1
+    menu_id: 1
+    is_available: true
+    
+  canard_laque:
+    product_id: 3
+    menu_id: 1
+    is_available: true
+    
+  tartare:
+    product_id: 4
+    menu_id: 1
+    is_available: true
+    
+  brownie:
+    product_id: 6
+    menu_id: 1
+    is_available: true
