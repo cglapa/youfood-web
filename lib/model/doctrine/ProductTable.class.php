@@ -35,4 +35,24 @@ class ProductTable extends Doctrine_Table
        }
        return $products_array;
    }
+   
+   public function getProduct()
+    {
+        return $this->createQuery('p');
+    }
+    
+    
+   public function getUnassociated($menuId) {
+       $products = $this->getProduct()
+               ->where('p.id NOT IN (select product_id FROM menu_product WHERE menu_id = ?)', $menuId)
+               ->execute();
+       
+       
+       $products_array = array();
+       foreach ($products as $product) {
+           $products_array[$product->getId()] = $product->getName();
+       }
+       
+       return $products_array;
+   }
 }

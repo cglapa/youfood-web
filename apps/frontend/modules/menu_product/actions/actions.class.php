@@ -18,19 +18,24 @@ class menu_productActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new MenuProductForm();
     $this->menu = Doctrine::getTable('Menu')->find($request->getParameter('id'));
+    if($this->menu) {
+        $this->form = new MenuProductForm($this->menu->getId());
+    }
+    
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
     $this->menu = Doctrine::getTable('Menu')->find($request->getParameter('id'));
-    $this->form = new MenuProductForm();
+    if($this->menu) {
+        $this->form = new MenuProductForm($this->menu->getId());
 
-    $this->processForm($request, $this->form);
+        $this->processForm($request, $this->form);
 
-    $this->setTemplate('new');
+        $this->setTemplate('new');
+    }
   }
 
   public function executeDelete(sfWebRequest $request)
