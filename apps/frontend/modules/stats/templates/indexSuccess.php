@@ -13,24 +13,27 @@
         <?php foreach ($zones as $zone): ?>
         <tr>
             <td><strong><?php echo $zone->getName() ?></strong></td>
-            <td>
-                <form id="category_<?php echo $zone->getId() ?>" action="<?php echo url_for('stats_zone', $zone)?>" method="post">
-                    <select name="category">
-                        <option value="0">Toutes</option>
-                        <?php foreach ($categorys as $category): ?>
-                        <option value="<?php echo $category->getId() ?>"><?php echo $category->getName() ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                    <input type="submit" style="visibility: hidden" />
-                </form>
-                
-            </td>
-            <td style="text-align: left">
-                <a class="btn btn-info" href="#" onclick="document.getElementById('category_<?php echo $zone->getId() ?>').submit()">
-                    <i class="icon-ok icon-white"></i>
-                    Valider
-                </a>
-            </td>
+            <form action="<?php echo url_for('stats_zone', $zone)?>" method="post">
+                <td>
+
+                        <select name="category">
+                            <option value="0">Toutes</option>
+                            <?php foreach ($categorys as $category): ?>
+                            <option value="<?php echo $category->getId() ?>"><?php echo $category->getName() ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="submit" style="visibility: hidden" />
+
+
+                </td>
+                <td style="text-align: left">
+                    <button class="btn btn-info" type="submit">
+                        <i class="icon-ok icon-white"></i>
+                        Valider
+                    </button>
+
+                </td>
+            </form>
         </tr>
         <?php endforeach; ?>
     </tbody>

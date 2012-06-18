@@ -2,7 +2,7 @@
 <?php use_javascripts_for_form($form) ?>
 
 <?php //echo $form->renderFormTag(($form->getObject()->isNew() ? 'product_create' : 'product_update')) ?>
-<form id="form" action="<?php echo url_for(($form->getObject()->isNew() ? 'product_create' : 'product_update'), ($form->getObject()->isNew() ? $category : $product)) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for(($form->getObject()->isNew() ? 'product_create' : 'product_update'), ($form->getObject()->isNew() ? $category : $product)) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
@@ -14,10 +14,10 @@
               <i class="icon-arrow-left icon-white"></i>
               Retour
           </a>
-          <a href="#" onclick="document.getElementById('form').submit()" class="btn btn-success">
+          <button type="submit" class="btn btn-success">
               <i class="icon-white icon-pencil"></i>
               <?php echo ($form->getObject()->isNew() ? 'Créer' : 'Modifier') ?>
-          </a>
+          </button>
         </td>
       </tr>
     </tfoot>
