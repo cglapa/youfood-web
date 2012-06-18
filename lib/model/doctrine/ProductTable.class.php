@@ -45,8 +45,8 @@ class ProductTable extends Doctrine_Table
    public function getUnassociated($menuId) {
        $products = $this->getProduct()
                ->where('p.id NOT IN (select product_id FROM menu_product WHERE menu_id = ?)', $menuId)
+               ->orderBy('p.category_id, p.name')
                ->execute();
-       
        
        $products_array = array();
        foreach ($products as $product) {

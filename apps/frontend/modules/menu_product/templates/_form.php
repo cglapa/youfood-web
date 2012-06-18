@@ -20,7 +20,7 @@
           <?php if($form->getObject()->isNew()): ?>
           <button type="submit" class="btn btn-info" name="again" value="true">
               <i class="icon-pencil icon-white"></i>
-              Créer et encore
+              Ajouter et encore
           </button>  
           <?php endif; ?>
         </td>
