@@ -7,11 +7,20 @@
     <?php echo $form ?>
     <tr>
       <td colspan="2">
-          <a class="btn btn-success" href="#" onclick="document.getElementById('form').submit()">
+          <a href="<?php echo url_for('sf_guard_list') ?>" class="btn btn-inverse">
+              <i class="icon-arrow-left icon-white"></i>
+              Retour
+          </a>
+          <button class="btn btn-success" type="submit">
               <i class="icon-ok icon-white"></i>
               Créer !
-          </a>
-          <input type="submit" style="visibility: hidden" />
+          </button>
+          <?php if($form->getObject()->isNew()): ?>
+          <button type="submit" class="btn btn-info" name="again" value="true">
+              <i class="icon-pencil icon-white"></i>
+              Créer et encore
+          </button>  
+          <?php endif; ?>
       </td>
     </tr>
   </table>

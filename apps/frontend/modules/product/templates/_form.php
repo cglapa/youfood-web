@@ -18,6 +18,12 @@
               <i class="icon-white icon-pencil"></i>
               <?php echo ($form->getObject()->isNew() ? 'Créer' : 'Modifier') ?>
           </button>
+          <?php if($form->getObject()->isNew()): ?>
+          <button type="submit" class="btn btn-info" name="again" value="true">
+              <i class="icon-pencil icon-white"></i>
+              Créer et encore
+          </button>  
+          <?php endif; ?>
         </td>
       </tr>
     </tfoot>

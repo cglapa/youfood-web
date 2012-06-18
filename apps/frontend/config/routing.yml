@@ -323,6 +323,14 @@ sf_guard_update:
   param: { module: sfGuardAuth, action: update }
   requirements: 
     sf_method: put
+
+sf_guard_delete:
+  url:   /waiter/delete/:id
+  class: sfDoctrineRoute
+  options: { model: sfGuardUser, type: object }
+  param: { module: sfGuardAuth, action: delete }
+  requirements: 
+    sf_method: delete
     
 # Categories rules
 category_detail:

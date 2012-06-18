@@ -67,7 +67,10 @@ class menuActions extends sfActions
     {
       $menu = $form->save();
 
-      $this->redirect('menu');
+      if($request->getParameter('again') == 'true')
+        $this->redirect('menu_new');
+      else
+        $this->redirect('menu');      
     }
   }
   

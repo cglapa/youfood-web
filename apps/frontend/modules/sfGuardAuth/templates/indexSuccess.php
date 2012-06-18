@@ -19,10 +19,10 @@
                     <i class="icon-cog icon-white"></i>
                     Modifier
                 </a>
-                <a href="#" class="btn btn-danger">
-                    <i class="icon-remove icon-white"></i>
-                    Supprimer
-                </a>
+                <?php echo link_to(
+                    '<i class="icon-remove icon-white"></i> Supprimer', 
+                    'sf_guard_delete', 
+                    $user, array('method' => 'delete', 'class' => 'btn btn-danger','confirm' => "Voulez vous vraiment supprimer le serveur ".strtolower($user->getFirstName())." ".$user->getLastName()." ?")) ?>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -23,8 +23,11 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
 
         /* On crée l'utilisateur */
         $sf_guard_user = $this->form->save();
-
-        $this->redirect('@sf_guard_list');
+        
+        if($request->getParameter('again') == 'true')
+            $this->redirect ('sf_guard_register');
+        else
+            $this->redirect('@sf_guard_list');
       }
       /* Sinon le formulaire ainsi que l'erreur sera ré-affiché */
     }
@@ -55,14 +58,23 @@ class sfGuardAuthActions extends BasesfGuardAuthActions
       $this->setTemplate('edit');
   }
   
+  public function executeDelete(sfWebRequest $request) 
+  {
+      $user = Doctrine::getTable('sfGuardUser')->find($request->getParameter('id'));
+      
+      $user->delete();
+      
+      $this->redirect('sf_guard_list');
+  }
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
       $form->save();
-
-      $this->redirect('sf_guard_list');
+      
+      
+        $this->redirect('sf_guard_list');
     }
   }
 }

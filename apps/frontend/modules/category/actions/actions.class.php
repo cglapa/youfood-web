@@ -69,7 +69,10 @@ class categoryActions extends sfActions
     {
       $category = $form->save();
 
-      $this->redirect('category');
+      if($request->getParameter('again') == 'true') 
+        $this->redirect ('category_new');
+      else 
+        $this->redirect('category');
     }
   }
 }
