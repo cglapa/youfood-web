@@ -36,7 +36,7 @@
   </tbody>
 </table>
 
-  <a class="btn btn-success" href="<?php echo url_for('product_new', $product) ?>">
+  <a class="btn btn-success" href="<?php echo url_for('product_new', $category) ?>">
       <i class="icon-pencil icon-white"></i>
       Nouveau
   </a>

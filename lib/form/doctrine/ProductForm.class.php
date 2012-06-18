@@ -15,11 +15,20 @@ class ProductForm extends BaseProductForm
       $this->widgetSchema['category_id'] = new sfWidgetFormInputHidden();
       
       $this->widgetSchema['name'] = new sfWidgetFormInputText();
+      $this->widgetSchema['image'] = new sfWidgetFormInputFile(array(
+        'label' => 'Image du plat',
+      ));
       
       $this->widgetSchema->setLabels(array(
           'name' => 'Nom',
           'price' => 'Prix',
           'available' => 'Disponible'
+      ));
+      
+      $this->validatorSchema['image'] = new sfValidatorFile(array(
+        'required'   => true,
+        'path'       => sfConfig::get('sf_upload_dir').'/products/',
+        'mime_types' => 'web_images',
       ));
   }
 }

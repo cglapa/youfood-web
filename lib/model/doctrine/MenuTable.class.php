@@ -32,10 +32,11 @@ class MenuTable extends Doctrine_Table
                                 "id" => $menu_product->getProduct()->getId(),
                                 "name" => $menu_product->getProduct()->getName(), 
                                 "price" => $menu_product->getProduct()->getPrice(),
-                                "description" => $menu_product->getProduct()->getDescription()
+                                "description" => $menu_product->getProduct()->getDescription(),
+                                "image" => base64_encode(file_get_contents(sfConfig::get('sf_upload_dir').'/products/'.$menu_product->getProduct()->getImage()))
                             );
                             $category = $menu_product->getProduct()->getCategory();
-                            if(!$created_categories[$category->getId()]) {
+                            if(!isset($created_categories[$category->getId()])) {
                                 array_push($category_array, array(
                                     "id" => $category->getId(),
                                     "name" => $category->getName(),
