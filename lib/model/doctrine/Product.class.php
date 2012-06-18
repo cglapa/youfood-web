@@ -17,4 +17,11 @@ class Product extends BaseProduct
         unlink(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
         return parent::delete($conn);
     }
+    
+    public function save(Doctrine_Connection $conn = null) {
+        parent::save($conn);
+        $thumbnail = new sfThumbnail(133, 100);
+        $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+        $thumbnail->save(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$this->getImage());
+    }
 }

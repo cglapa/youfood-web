@@ -12,7 +12,7 @@ class menu_productActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->menu_products = Doctrine::getTable('MenuProduct')->findBy('menu_id', $request->getParameter('id'));
+    $this->menu_products = Doctrine::getTable('MenuProduct')->getArrayCategoryInMenu($request->getParameter('id'));
     $this->menu = Doctrine::getTable('Menu')->find($request->getParameter('id'));
   }
 

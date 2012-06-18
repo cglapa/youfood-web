@@ -16,4 +16,30 @@ class MenuProductTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MenuProduct');
     }
+    
+    public function getMenuProduct()
+    {
+        return $this->createQuery('m');
+    }
+    
+    public function getArrayCategoryInMenu($menuId)
+    {
+        $menuProducts = $this->getMenuProduct()
+                ->select('m.*')
+                ->leftJoin('m.Product p')
+                ->leftJoin('p.Category c')
+                ->where('m.menu_id = ?', $menuId)
+                ->orderBy('c.id')
+                ->execute();
+        $menuProductByCategory = array();
+        foreach ($menuProducts as $menuProduct) {
+            $category = $menuProduct->getProduct()->getCategory();
+            if(!isset($menuProductByCategory[$category->getName()]))
+                $menuProductByCategory[$category->getName()] = array($menuProduct);
+            else
+                array_push ($menuProductByCategory[$category->getName()], $menuProduct);
+        }
+        
+        return $menuProductByCategory;
+    }
 }
