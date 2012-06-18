@@ -26,7 +26,9 @@ all:
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            YouFoodCsrfSecret
-
+    i18n:                   on
+    default_culture:        fr
+    standard_helpers:       [Partial, Cache, I18N, Text]
     # Output escaping settings
     escaping_strategy:      true
     escaping_method:        ESC_SPECIALCHARS

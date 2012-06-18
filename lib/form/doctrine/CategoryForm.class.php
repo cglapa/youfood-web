@@ -12,9 +12,10 @@ class CategoryForm extends BaseCategoryForm
 {
   public function configure()
   {
+      $this->widgetSchema['name'] = new sfWidgetFormInputText();
       $this->widgetSchema->setLabels(array(
          'name' => 'Nom de la catégorie'
       ));
-      $this->widgetSchema['name'] = new sfWidgetFormInputText();
+      
   }
 }
