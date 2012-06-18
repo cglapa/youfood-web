@@ -33,8 +33,13 @@ class MenuTable extends Doctrine_Table
                                 "name" => $menu_product->getProduct()->getName(), 
                                 "price" => $menu_product->getProduct()->getPrice(),
                                 "description" => $menu_product->getProduct()->getDescription(),
-                                "image" => base64_encode(file_get_contents(sfConfig::get('sf_upload_dir').'/products/thumbnail/'.$menu_product->getProduct()->getImage()))
+                                "thumbnail" => "",
+                                "image" => ""
                             );
+                            if($menu_product->getProduct()->getImage()) {
+                                $product["thumbnail"] = base64_encode(file_get_contents(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$menu_product->getProduct()->getImage()));
+                                $product["image"] = 'uploads/products/'.$menu_product->getProduct()->getImage();
+                            }
                             $category = $menu_product->getProduct()->getCategory();
                             if(!isset($created_categories[$category->getId()])) {
                                 array_push($category_array, array(
