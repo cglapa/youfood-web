@@ -86,13 +86,4 @@ class productActions extends sfActions
       $this->redirect('/category/'.$product->getCategoryId());
     }
   }
-  
-  public function executeAvailable(sfWebRequest $request)
-  {
-      $product = Doctrine::getTable('Product')->find($request->getParameter('id'));
-      $product->setAvailable(!$product->getAvailable());
-      $product->save();
-      
-      $this->redirect('category_detail', $product->getCategory());
-  }
 }

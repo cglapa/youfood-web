@@ -45,7 +45,6 @@ Product:
     description:        { type: string }
     price:              { type: decimal, notnull: true }
     image:              { type: string, notnull: true }
-    available:          { type: boolean, default: true }
   relations:
     Category:           { onDelete: CASCADE, local: category_id }
 

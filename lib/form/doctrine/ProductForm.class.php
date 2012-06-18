@@ -29,6 +29,7 @@ class ProductForm extends BaseProductForm
         'required'   => true,
         'path'       => sfConfig::get('sf_upload_dir').'/products/',
         'mime_types' => 'web_images',
+        'max_size'   => '500000'
       ));
   }
 }
