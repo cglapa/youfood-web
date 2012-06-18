@@ -12,4 +12,9 @@
  */
 class Product extends BaseProduct
 {
+    public function delete(Doctrine_Connection $conn = null)
+    {
+        unlink(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+        return parent::delete($conn);
+    }
 }
