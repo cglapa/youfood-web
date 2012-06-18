@@ -18,14 +18,18 @@ class MenuProductForm extends BaseMenuProductForm
     }
     public function configure()
   {
+      $this->widgetSchema['product_id'] = new sfWidgetFormSelect(array(
+          'choices' => Doctrine::getTable('Product')->getUnassociated($this->_menu_id) 
+        ));
+      
+      $this->widgetSchema['menu_id'] = new sfWidgetFormInputHidden();
+      
       $this->getWidgetSchema()->setLabels(array(
           'product_id' => 'Plat'
       ));
       
       unset($this['is_available']);
       
-      $this->widgetSchema['product_id'] = new sfWidgetFormSelect(array(
-          'choices' => Doctrine::getTable('Product')->getUnassociated($this->_menu_id) 
-        ));
+      
   }
 }

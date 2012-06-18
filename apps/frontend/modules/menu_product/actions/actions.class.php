@@ -21,6 +21,7 @@ class menu_productActions extends sfActions
     $this->menu = Doctrine::getTable('Menu')->find($request->getParameter('id'));
     if($this->menu) {
         $this->form = new MenuProductForm($this->menu->getId());
+        $this->form->setDefault('menu_id', $this->menu->getId());
     }
     
   }
@@ -31,7 +32,7 @@ class menu_productActions extends sfActions
     $this->menu = Doctrine::getTable('Menu')->find($request->getParameter('id'));
     if($this->menu) {
         $this->form = new MenuProductForm($this->menu->getId());
-
+        
         $this->processForm($request, $this->form);
 
         $this->setTemplate('new');
