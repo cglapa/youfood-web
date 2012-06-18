@@ -16,6 +16,7 @@
               <div class="container">
                   <a class="brand" href="<?php echo url_for('@homepage') ?>">You Food !</a>
                   <?php if($sf_user->isAuthenticated()): ?>
+                  <p class="nav navbar-text">Vous êtes connecté en tant que <?php echo $sf_user->getGuardUser()->getFirstName()." ".$sf_user->getGuardUser()->getLastName()?>. <?php echo link_to('Se déconnecter', 'sf_guard_signout') ?></p>
                   <ul class="nav pull-right">
                       <li><?php echo link_to('Commandes', 'table_order') ?></li>
                       <li><?php echo link_to('Menus', 'menu')?></li>
