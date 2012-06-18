@@ -9,13 +9,10 @@ homepage:
   options: { model: Tablet, type: list }
 
 table_order:
-  url: /order.:sf_format
-  class: sfDoctrineRoute
-  param: { module: table_order, action: index }
-  options: { model: TableOrder, type: list }
+  url: /checkout
+  class: sfRoute
+  param: { module: order, action: index, sf_format: json }
   requirements:
-    sf_format: (?:json)
-    id: \d+
     sf_method: post
 
 auth:

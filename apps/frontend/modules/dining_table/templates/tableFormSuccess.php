@@ -5,6 +5,6 @@
     </option>
     <?php endforeach; ?>
 </select>
-<a class="btn btn-success" href="#" onclick="association(<?php echo $androidId ?>)">
+<a class="btn btn-success" href="#" onclick="association('<?php echo $androidId ?>')">
     <i class="icon-ok icon-white"></i>
 </a>

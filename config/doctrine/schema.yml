@@ -18,11 +18,14 @@ DiningTable:
     DiningRoom:         { onDelete: CASCADE, local: dining_room_id }
 
 TableOrder:
+  actAs:
+    Timestampable:
+      updated:          { disabled: true }
   columns:
     is_closed:          { type: boolean, default: false }
     dining_table_id:    { type: integer, notnull: true }
-    created_at:         { type: timestamp }
     is_new:             { type: boolean, default: true }
+    pay_key:            { type: string, notnull: true }
   relations:
     DiningTable:        { local: dining_table_id }
 
