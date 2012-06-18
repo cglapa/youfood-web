@@ -14,7 +14,9 @@
     <h1><?php echo $category->getName() ?></h1>
 </div>
 <p>
-    <img src="/uploads/products/<?php echo $product->getImage() ?>" alt="osef" style="max-width: 600px; max-height: 600px; float: right"/>
+    <?php if($product->getImage()): ?>
+        <img src="/uploads/products/<?php echo $product->getImage() ?>" alt="osef" style="max-width: 600px; max-height: 600px; float: right"/>
+    <?php endif; ?>
     Le plat <?php echo $category->getName() ?> fait partie de la categorie <?php echo $category->getName() ?>
     <br /><br />
     <?php echo $product->getDescription() ?>

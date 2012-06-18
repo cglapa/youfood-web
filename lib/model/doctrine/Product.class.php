@@ -20,8 +20,10 @@ class Product extends BaseProduct
     
     public function save(Doctrine_Connection $conn = null) {
         parent::save($conn);
-        $thumbnail = new sfThumbnail(133, 100);
-        $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
-        $thumbnail->save(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$this->getImage());
+        if($this->getImage()) {
+            $thumbnail = new sfThumbnail(133, 100);
+            $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+            $thumbnail->save(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$this->getImage());
+        }
     }
 }

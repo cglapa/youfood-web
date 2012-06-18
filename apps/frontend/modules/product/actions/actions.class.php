@@ -59,7 +59,7 @@ class productActions extends sfActions
       $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
       $this->forward404Unless($product = Doctrine_Core::getTable('Product')->find(array($request->getParameter('id'))), sprintf('Object product does not exist (%s).', $request->getParameter('id')));
       $this->form = new ProductForm($product);
-
+      
       $this->processForm($request, $this->form);
 
       $this->setTemplate('edit');
