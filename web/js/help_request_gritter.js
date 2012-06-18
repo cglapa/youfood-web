@@ -1,5 +1,5 @@
 function setIntervention(androidId) {
-    $.post("/api.php/help/list", {androidId: androidId, help: 2 });
+    $.post("/help/list", {androidId: androidId, help: 2 });
     $("#help_"+androidId).text("Intervention en cours");
     $("#help_"+androidId+"_a").attr('disabled', 'disabled');
 }
@@ -8,7 +8,7 @@ $(document).ready(function() {
    var shownOrders = [];
    var shownAlerts = [];
    setInterval(function(){   
-       $.getJSON("/api.php/help/list",
+       $.getJSON("/help/list",
             function(result) {
                 if(result != null) {
                     $.each(result.tablet, function(key, value) {
@@ -26,7 +26,7 @@ $(document).ready(function() {
                                 },
                                 before_close: function() {
                                     shownOrders[value.androidId] = false;
-                                    $.post("/api.php/help/list", {androidId: value.androidId, help: 0 });
+                                    $.post("/help/list", {androidId: value.androidId, help: 0 });
                                 }
                             });
                         }

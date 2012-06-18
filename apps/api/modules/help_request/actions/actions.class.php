@@ -34,27 +34,4 @@ class help_requestActions extends sfActions
           $tablet->save();
       }
   }
-  
-  public function executeList(sfWebRequest $request) {
-      if($request->getMethod() == 'POST') {
-          $tablet = Doctrine::getTable('Tablet')->getTabletByAndroidId($request->getParameter('androidId'))->fetchOne();
-          $help = $request->getParameter('help');
-          if($help >= 0 && $help < 3) {
-            $tablet->setHelp($request->getParameter('help'));
-            $tablet->save();
-          }
-      }
-      else {
-          $tablets = Doctrine::getTable('Tablet')->findBy('help', '1');
-          $tablets_array = array();
-          foreach($tablets as $tablet) {
-            $tablet = array(
-                "androidId" => $tablet->getAndroidId(),
-                "diningTable" => $tablet->getDiningTable()->getName()
-                );
-                array_push($tablets_array, $tablet);
-          }
-          $this->jsonArray = array("tablet" => $tablets_array);
-      }
-  }
 }

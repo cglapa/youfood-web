@@ -6,7 +6,9 @@
     <?php include_title() ?>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
+    <?php if($sf_user->isAuthenticated()): ?>
     <?php include_javascripts() ?>
+    <?php endif; ?>
   </head>
     <body>
       <div class="navbar">

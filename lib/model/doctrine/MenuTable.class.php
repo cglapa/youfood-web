@@ -24,6 +24,8 @@ class MenuTable extends Doctrine_Table
             if($tablet) {
                 $menu_products = Doctrine::getTable('MenuProduct')->findBy('menu_id', $menu->getId());
                 $category_array = array();
+                $created_categories = array();
+                $i = 0;
                 foreach ($menu_products as $menu_product) {
                     if($menu_product->getIsAvailable()) {
                             $product = array(
@@ -33,16 +35,17 @@ class MenuTable extends Doctrine_Table
                                 "description" => $menu_product->getProduct()->getDescription()
                             );
                             $category = $menu_product->getProduct()->getCategory();
-                            if(!in_array(array("id" => $category->getId()), $category_array)) {
+                            if(!$created_categories[$category->getId()]) {
                                 array_push($category_array, array(
                                     "id" => $category->getId(),
                                     "name" => $category->getName(),
                                     "product" => array($product)
                                 ));
+                                $created_categories[$category->getId()] = $i;
+                                $i++;
                             }
                             else {
-                                $product_arrays = $category_array[$category->getId()];
-                                array_push($product, $product_arrays["product"]);
+                                array_push($category_array[$created_categories[$category->getId()]]["product"], $product);
                             }
                     }
 

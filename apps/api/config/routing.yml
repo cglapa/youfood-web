@@ -27,22 +27,6 @@ help_request:
   url: /help/request/:id
   class: sfRoute
   param: { module: help_request, action: index }
-
-help_list:
-  url: /help/list
-  class: sfDoctrineRoute
-  param: { module: help_request, action: list, sf_format: json }
-  options: { model: Tablet, type: list }
-  requirements: 
-    sf_method: get
-  
-help_list_change:
-  url: /help/list
-  class: sfDoctrineRoute
-  param: { module: help_request, action: list }
-  options: { model: Tablet, type: list }
-  requirements: 
-    sf_method: post
     
 # generic rules
 # please, remove them by adding more specific rules

@@ -1,7 +1,24 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+#help
 
+help_list:
+  url: /help/list
+  class: sfDoctrineRoute
+  param: { module: help_request, action: list, sf_format: json }
+  options: { model: Tablet, type: list }
+  requirements: 
+    sf_method: get
+  
+help_list_change:
+  url: /help/list
+  class: sfDoctrineRoute
+  param: { module: help_request, action: list }
+  options: { model: Tablet, type: list }
+  requirements: 
+    sf_method: post
+    
 #stats
 stats_zone:
   url: /stats/zone/:id
