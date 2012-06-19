@@ -3,13 +3,13 @@
         <?php echo link_to('Liste des commandes', 'table_order') ?><span class="divider">></span>
     </li>
     <li class="active">
-        Commande de la table <?php echo strtolower($table_order->getDiningTable()) ?>
+        Commande de la table <?php echo $table_order->getDiningTable() ?>
     </li>
 </ul>
 
 
 <div class="page-header">
-    <h1>Commande de la table <?php echo strtolower($table_order->getDiningTable()) ?></h1>
+    <h1>Commande de la table <?php echo $table_order->getDiningTable() ?></h1>
 </div>
 
 <table class="table table-striped">

@@ -6,7 +6,7 @@
         <a href="<?php echo url_for('category_detail', $category) ?>"><?php echo $category->getName() ?></a><span class="divider">></span>
     </li>
     <li class="active">
-        Modifier le plat <?php echo strtolower($category->getName()) ?>
+        Modifier le plat <?php echo $product->getName() ?>
     </li>
 </ul>
 

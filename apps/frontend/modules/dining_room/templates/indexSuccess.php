@@ -3,11 +3,11 @@
         <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
     </li>
     <li class="active">
-        Salles du restaurant <?php echo strtolower($zone->getName()) ?>
+        Salles du restaurant <?php echo $zone->getName() ?>
     </li>
 </ul>
 <div class="page-header">
-    <h1>Salles du restaurant <?php echo strtolower($zone->getName()) ?></h1>
+    <h1>Salles du restaurant <?php echo $zone->getName() ?></h1>
 </div>
 
 <table class="table table-striped">
