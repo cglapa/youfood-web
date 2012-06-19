@@ -20,16 +20,23 @@ class Product extends BaseProduct
     }
     
     public function preSave($event) {
-        $newValue = $this->getImage();
+        $newImage = $this->getImage();
+        $newPrice = $this->getPrice();
+        $newDescription = $this->getDescription();
+        $newName = $this->getName();
+        
         $oldValue = Doctrine::getTable('Product')->find($this->getId());
         if($oldValue) {
             $oldImage = $oldValue->getImage();
-            if($oldImage && $oldImage != $newValue) {
+            if($oldImage && $oldImage != $newImage) {
                 unlink(sfConfig::get('sf_upload_dir').'/products/'.$oldImage);
                 unlink(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$oldImage);
             }
         }
-        $this->setImage($newValue);
+        $this->setImage($newImage);
+        $this->setPrice($newPrice);
+        $this->setDescription($newDescription);
+        $this->setName($newName);
         parent::preSave($event);
     }
     
