@@ -7,6 +7,7 @@ Product:
     Category: entrees
     description: Description de l'entrée salade
     price: 3.00
+    image: 1adf99a9b5d9ce06ac6cb41dfa20e05be82b763f.jpg
     
 #Plat principal
   boeuf_bouguignon:
@@ -14,27 +15,32 @@ Product:
     Category: plat_principal
     description: Description du plat boeuf bourguignon
     price: 12.50
+    image: efd72103b269254e35897e918379b7635eea1101.jpg
     
   canard_laque:
     name: Canard Laqué
     Category: plat_principal
     description: Description du plat Canard laqué
     price: 14.00
+    image: c73ca89ffa0364791ef851e514c85ca01824571b.jpg
     
   tartare:
     name: Tartare
     Category: plat_principal
     description: Description du plat Tartate
     price: 11.50
+    image: c1222ada71742586157751cc80a92bafa21b52dd.jpg
 #Dessert
   glace:
     name: Glace
     Category: dessert
     description: Description du dessert glace
     price: 6.00
+    image: 47abc578607e57d58023943310c5aeea2793f11d.jpg
     
   brownie:
     name: Brownie
     Category: dessert
     description: Description du dessert brownie
     price: 4.50
+    image: adf32756e6861937ca3ed4af7ca63d43f659f08e.jpg
