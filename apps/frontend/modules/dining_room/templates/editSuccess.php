@@ -1,3 +1,5 @@
+<?php slot('title', 'Modifier une salle') ?>
+
 <ul class="breadcrumb">
     <li>
         <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>

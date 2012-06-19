@@ -1,3 +1,5 @@
+<?php slot('title', 'Liste des serveurs') ?>
+
 <div class="page-header">
     <h1>Liste des serveurs</h1>
 </div>

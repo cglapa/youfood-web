@@ -1,3 +1,5 @@
+<?php slot('title', 'Catégories') ?>
+
 <ul class="breadcrumb">
     <li class="active">
         Liste des cat&eacute;gories

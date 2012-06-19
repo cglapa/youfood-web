@@ -1,3 +1,5 @@
+<?php slot('title', 'Tables d\'une salle') ?>
+
 <ul class="breadcrumb">
     <li>
         <?php echo link_to('Liste des restaurants', 'zone') ?><span class="divider">></span>
@@ -11,7 +13,7 @@
 </ul>
 
 <div class="page-header">
-    <h1>Tables de la salle <?php echo strtolower($dining_room->getName()) ?></h1>
+    <h1>Tables de la salle <?php echo $dining_room->getName() ?></h1>
 </div>
 
 <table class="table table-striped">

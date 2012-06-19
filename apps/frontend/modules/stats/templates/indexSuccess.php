@@ -1,3 +1,5 @@
+<?php slot('title', 'Statistique') ?>
+
 <ul class="breadcrumb">
     <li class="active">
         <a href="<?php echo url_for('stats') ?>">Statistique de vente</a>

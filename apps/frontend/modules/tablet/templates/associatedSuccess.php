@@ -1,3 +1,5 @@
+<?php slot('title', 'Tablettes associées') ?>
+
 <ul class="breadcrumb">
     <li>
         <?php echo link_to('Requêtes d\'association', 'tablet_request')?><span class="divider">|</span>

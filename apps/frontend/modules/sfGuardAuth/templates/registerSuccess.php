@@ -1,3 +1,5 @@
+<?php slot('title', 'Créer un serveur') ?>
+
 <div class="page-header">
     <h1>Création d'un compte serveur</h1>
 </div>

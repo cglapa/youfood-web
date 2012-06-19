@@ -1,3 +1,5 @@
+<?php slot('title', 'Créer une catégorie') ?>
+
 <ul class="breadcrumb">
     <li>
         <a href="<?php echo url_for('category')?>">Liste des cat&eacute;gories</a><span class="divider">></span>

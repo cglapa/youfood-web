@@ -1,3 +1,5 @@
+<?php slot('title', 'Liste des menus') ?>
+
 <ul class="breadcrumb">
     <li class="active">
         <a href="<?php echo url_for('menu')?>">Liste des menus</a>

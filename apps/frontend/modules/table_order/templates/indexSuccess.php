@@ -1,3 +1,4 @@
+<?php slot('title', 'Commandes') ?>
 <?php if(!$all) use_javascript('load_orders.js') ?>
 
 <ul class="breadcrumb">

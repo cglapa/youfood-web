@@ -3,7 +3,7 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
+    <title>Youfood - <?php include_slot('title')?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php if($sf_user->isAuthenticated()): ?>

@@ -1,3 +1,5 @@
+<?php slot('title', 'Détail commande') ?>
+
 <ul class="breadcrumb">
     <li>
         <?php echo link_to('Liste des commandes', 'table_order') ?><span class="divider">></span>

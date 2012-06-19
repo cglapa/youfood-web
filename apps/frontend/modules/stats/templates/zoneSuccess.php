@@ -1,3 +1,5 @@
+<?php slot('title', 'Statistique d\'une zone') ?>
+
 <ul class="breadcrumb">
     <li>
         <a href="<?php echo url_for('stats') ?>">Statistique de vente</a><span class="divider">></span>

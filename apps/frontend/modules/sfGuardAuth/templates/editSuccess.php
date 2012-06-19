@@ -1,3 +1,5 @@
+<?php slot('title', 'Modifier un serveur') ?>
+
 <div class="page-header">
     <h1>Modifier le serveur <?php echo $user->getFirstName()." ".$user->getLastName() ?></h1>
 </div>

@@ -1,3 +1,5 @@
+<?php slot('title', 'Liste de restaurants') ?>
+
 <ul class="breadcrumb">
     <li class="active">
         Liste des restaurants

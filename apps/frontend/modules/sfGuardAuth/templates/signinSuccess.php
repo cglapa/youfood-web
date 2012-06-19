@@ -1,4 +1,5 @@
 <?php use_helper('I18N') ?>
+<?php slot('title', 'Connexion') ?>
 
 <div class="page-header">
     <h1>Se connecter</h1>
