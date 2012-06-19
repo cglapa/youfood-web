@@ -6,8 +6,10 @@ DiningRoom:
   columns:
     name:               { type: string, notnull: true }
     zone_id:            { type: integer, notnull: true }
+    waiter_id:          { type: integer, notnull: true }
   relations:
     Zone:               { onDelete: CASCADE, local: zone_id }
+    sfGuardUser:        { onDelete: RESTRICT, local: waiter_id, foreign: id }
 
 DiningTable:
   columns:

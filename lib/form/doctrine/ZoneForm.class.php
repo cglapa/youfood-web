@@ -14,6 +14,6 @@ class ZoneForm extends BaseZoneForm
   {
       $this->widgetSchema['name'] = new sfWidgetFormInputText();
       
-      $this->getWidgetSchema()->setLabel('name', 'Nom de la zone');
+      $this->getWidgetSchema()->setLabel('name', 'Nom du restaurant');
   }
 }

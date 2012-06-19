@@ -20,7 +20,7 @@ class help_requestActions extends sfActions
           }
       }
       else {
-          $tablets = Doctrine::getTable('Tablet')->findBy('help', '1');
+          $tablets = Doctrine::getTable('Tablet')->getHelpRequestByWaiter($this->getUser()->getGuardUser()->getId())->execute();
           $tablets_array = array();
           foreach($tablets as $tablet) {
             $tablet = array(

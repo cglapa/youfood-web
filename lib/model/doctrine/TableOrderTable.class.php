@@ -17,10 +17,23 @@ class TableOrderTable extends Doctrine_Table
         return Doctrine_Core::getTable('TableOrder');
     }
     
-    public function getUnclosed() {
-       $q = Doctrine_Query::create()
-               ->from('TableOrder t')
-               ->where('t.is_closed = 0');
-       return $q->execute();
+    public function getUnclosedByWaiter($waiter_id) {
+       $q = $this->createQuery('t')
+               ->select('t.*')
+               ->leftJoin('t.DiningTable d')
+               ->leftJoin('d.DiningRoom r')
+               ->where('r.waiter_id = ?', $waiter_id)
+               ->andWhere('t.is_closed = 0');
+       return $q;
    }
+   
+   public function getByWaiter($waiter_id) {
+       $q = $this->createQuery('t')
+               ->leftJoin('t.DiningTable d')
+               ->leftJoin('d.DiningRoom r')
+               ->where('r.waiter_id = ?', $waiter_id);
+       return $q;
+   }
+   
+   
 }

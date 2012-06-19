@@ -1,7 +1,8 @@
 sfGuardUser:
-  User_admin:
-    first_name:     Nicolas
-    last_name:      OBRE
+  user_admin:
+    id:             1
+    first_name:     Admin
+    last_name:      Admun
     email_address:  admin@youfood.local
     username:       admin
     password:       admin

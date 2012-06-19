@@ -16,9 +16,14 @@
         <?php echo link_to('Commandes en cours', 'table_order')?>
         <span class="divider">|</span>
     </li>
-    <li<?php if($all) echo ' class="active" '?>>
+    <li<?php if($all == "mine") echo ' class="active" '?>>
+        <?php echo link_to('Toutes mes commandes', '/order/mine') ?>
+        <span class="divider">|</span>
+    </li>
+    <li<?php if($all == "all") echo ' class="active" '?>>
         <?php echo link_to('Toutes les commandes', '/order/all') ?>
     </li>
+    
 </ul>
 
 <table class="table table-striped">

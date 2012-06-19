@@ -12,24 +12,26 @@ class table_orderActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-      //var_dump($request->getParameter('all'));
-      //die;
-      if($request->getParameter('all') == "all") {
-          $this->table_orders = Doctrine_Core::getTable('TableOrder')
-            ->createQuery('a')
-            ->execute();
-          $this->all = true;
+      if($request->getParameter('all') == "mine") {
+          $this->table_orders = Doctrine_Core::getTable('TableOrder')->getByWaiter($this->getUser()->getGuardUser()->getId())->execute();
+          $this->all = 'mine';
+      }
+      elseif($request->getParameter('all') == "all") {
+          $this->table_orders = Doctrine::getTable('TableOrder')
+                  ->createQuery('a')
+                  ->execute();
+          $this->all = 'all';
       }
       else
       {
-          $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
-          $this->all = false;
+          $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosedByWaiter($this->getUser()->getGuardUser()->getId())->execute();
+          $this->all = null;
       }
   }
   
   public function executeAjax(sfWebRequest $request)
   {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosedByWaiter($this->getUser()->getGuardUser()->getId())->execute();
     return $this->renderPartial('table_order/list', array('table_orders' => $this->table_orders));
   }
   
@@ -48,7 +50,7 @@ class table_orderActions extends sfActions
   }
   
   public function executeGetNew(sfWebRequest $request) {
-    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosed();
+    $this->table_orders = Doctrine_Core::getTable('TableOrder')->getUnclosedByWaiter($this->getUser()->getGuardUser()->getId())->execute();
   }
   
   public function executeCloseNew(sfWebRequest $request) {

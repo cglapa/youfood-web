@@ -4,9 +4,12 @@ DiningRoom:
   first_room:
     name: Première salle
     Zone: first
+    sfGuardUser: user_admin
   second_room:
     name: Seconde salle
     Zone: first
+    sfGuardUser: user_admin
   third_room:
     name: Troisième salle
     Zone: first
+    sfGuardUser: user_admin

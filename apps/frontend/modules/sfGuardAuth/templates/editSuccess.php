@@ -10,6 +10,10 @@
     <?php echo $form ?>
     <tr>
       <td colspan="2">
+          <a href="<?php echo url_for('sf_guard_list') ?>" class="btn btn-inverse">
+              <i class="icon-arrow-left icon-white"></i>
+              Retour
+          </a>
           <a class="btn btn-success" href="#" onclick="document.getElementById('form').submit()">
               <i class="icon-ok icon-white"></i>
               Créer !

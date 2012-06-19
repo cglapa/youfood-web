@@ -30,4 +30,14 @@ class TabletTable extends Doctrine_Table
         
         return $p;
     }
+    
+    public function getHelpRequestByWaiter($waiter_id)
+    {
+        $p = $this->getTablet()
+                ->leftJoin('p.DiningTable d')
+                ->leftJoin('d.DiningRoom r')
+                ->where('r.waiter_id = ?', $waiter_id)
+                ->andWhere('p.help = 1');
+        return $p;
+    }
 }
