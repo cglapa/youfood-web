@@ -15,9 +15,9 @@
 <div class="page-header">
     <h1><?php echo $category->getName() ?></h1>
 </div>
-<p>
+<p style="min-height: 500px;">
     <?php if($product->getImage()): ?>
-        <img src="/uploads/products/<?php echo $product->getImage() ?>" alt="osef" style="max-width: 600px; max-height: 600px; float: right"/>
+        <img src="/uploads/products/<?php echo $product->getImage() ?>" alt="Image du plat <?php echo $product->getName() ?>" style="max-width: 600px; max-height: 600px; float: right;"/>
     <?php endif; ?>
     Le plat <?php echo $category->getName() ?> fait partie de la categorie <?php echo $category->getName() ?>
     <br /><br />
