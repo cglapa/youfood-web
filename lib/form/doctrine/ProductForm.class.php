@@ -27,7 +27,7 @@ class ProductForm extends BaseProductForm
       
       $this->validatorSchema['image'] = new sfValidatorFile(array(
         'required'   => false,
-        'path'       => sfConfig::get('sf_upload_dir').'/products/',
+        'path'       => sfConfig::get('sf_upload_dir').'/products/brut/',
         'mime_types' => 'web_images',
         'max_size'   => '250000'
       ));

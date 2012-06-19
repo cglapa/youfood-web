@@ -86,7 +86,7 @@ class productActions extends sfActions
       if($request->getParameter('again') == 'true')
         $this->redirect ('product_new', $product->getCategory());
       else
-        $this->redirect('/category/'.$product->getCategoryId());
+        $this->redirect('category_detail', $product->getCategory());
     }
   }
 }

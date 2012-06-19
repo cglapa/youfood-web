@@ -15,15 +15,36 @@ class Product extends BaseProduct
     public function delete(Doctrine_Connection $conn = null)
     {
         unlink(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+        unlink(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$this->getImage());
         return parent::delete($conn);
+    }
+    
+    public function preSave($event) {
+        $newValue = $this->getImage();
+        $oldValue = Doctrine::getTable('Product')->find($this->getId());
+        if($oldValue) {
+            $oldImage = $oldValue->getImage();
+            if($oldImage && $oldImage != $newValue) {
+                unlink(sfConfig::get('sf_upload_dir').'/products/'.$oldImage);
+                unlink(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$oldImage);
+            }
+        }
+        $this->setImage($newValue);
+        parent::preSave($event);
     }
     
     public function save(Doctrine_Connection $conn = null) {
         parent::save($conn);
-        if($this->getImage()) {
+        if($this->getImage() && file_exists(sfConfig::get('sf_upload_dir').'/products/brut/'.$this->getImage())) {
             $thumbnail = new sfThumbnail(133, 100);
-            $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+            $thumbnail->loadFile(sfConfig::get('sf_upload_dir').'/products/brut/'.$this->getImage());
             $thumbnail->save(sfConfig::get('sf_upload_dir').'/products/thumbnails/'.$this->getImage());
+            
+            $image = new sfThumbnail(800, 600);
+            $image->loadFile(sfConfig::get('sf_upload_dir').'/products/brut/'.$this->getImage());
+            $image->save(sfConfig::get('sf_upload_dir').'/products/'.$this->getImage());
+            
+            unlink(sfConfig::get('sf_upload_dir').'/products/brut/'.$this->getImage());
         }
     }
 }
